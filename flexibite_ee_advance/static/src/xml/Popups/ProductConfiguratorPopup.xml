@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ProductConfiguratorPopup" t-inherit="point_of_sale.ProductConfiguratorPopup" t-inherit-mode="extension"
+       owl="1">
+        <xpath expr="//div[hasclass('confirm')]" position="after">
+            <t t-if="hasBOM and props.mode != 'replace' and props.mode != 'material' ">
+                <div class="button customise highlight1" t-on-click="trigger('custom-order-screen')">
+                    Customize
+                </div>
+            </t>
+            <t t-if="props.mode == 'replace'">
+                <label class="switch">
+                    <input type="checkbox" t-model="state.priceState" t-ref="switchStatus" checked="checked"/>
+                    <span class="slider round"></span>
+                </label>
+                <span class="price-label">Include Price</span>
+            </t>
+        </xpath>
+        <xpath expr="//div[hasclass('confirm')]" position="replace">
+            <t t-if="props.mode == 'replace'">
+                <div class="button highlight confirm" t-on-click="confirm">
+                    Replace
+                </div>
+            </t>
+            <t t-else="">
+                <div class="button highlight confirm" t-on-click="confirm">
+                    Add
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

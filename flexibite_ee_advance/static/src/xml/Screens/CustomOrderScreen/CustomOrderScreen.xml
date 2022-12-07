@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CustomOrderScreen" owl="1">
+        <div class="custom-screen screen" t-att-class="{ oe_hidden: !props.isShown }">
+            <div class="screen-full-width">
+                <div class="leftpane" t-if="!env.isMobile || mobile_pane === 'left'">
+                    <div class="material-bar-container green-border-bottom">
+                        <span class='custom-name'><t t-esc="props.full_name"/></span>
+                    </div>
+                    <MaterialWidget editFlag="state.editFlag" replaceMode="state.replaceMode"
+                                    categoryMode="state.categoryMode"/>
+                    <div class="pads">
+                        <div class="subpads">
+                            <MaterialpadWidget editFlag="state.editFlag" buttonEnable="state.buttonEnable"/>
+                        </div>
+                    </div>
+                    <t t-if="env.isMobile">
+                        <MobileOrderWidget pane="mobile_pane" t-on-switchpane="switchPane"/>
+                    </t>
+                </div>
+                <div class="rightpane" t-if="!env.isMobile || mobile_pane === 'right'">
+                    <t t-if="state.replaceMode">
+                        <ReplaceProductWidget mode="state.replaceBOMMode" categories="state.categories"
+                                              selected_id="state.selectedBomCategoryId"/>
+                    </t>
+                    <t t-if="!state.replaceMode and !state.categoryMode">
+                        <ProductsWidget/>
+                        <t t-if="env.isMobile">
+                            <MobileOrderWidget pane="mobile_pane" t-on-switchpane="switchPane"/>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

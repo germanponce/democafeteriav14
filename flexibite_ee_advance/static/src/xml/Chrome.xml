@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Chrome" t-inherit="point_of_sale.Chrome" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos')]//div[hasclass('pos-topheader')]//div[hasclass('pos-branding')]"
+               position="replace">
+            <div class="pos-branding" t-if="!env.isMobile">
+                <OpenDetailButton t-if="!env.isMobile"/>
+                <t t-if="state.uiState === 'READY'">
+                    <t t-if="env.pos.config and env.pos.config.enable_manual_lock and !env.isMobile">
+                        <LockPosScreen/>
+                    </t>
+                </t>
+                <t t-if="isTicketButtonShown">
+                    <img class="pos-logo" t-on-click="trigger('toggle-debug-widget')"
+                         src="/point_of_sale/static/src/img/logo.png" alt="Logo"/>
+                    <TicketButton isTicketScreenShown="isTicketScreenShown"/>
+                </t>
+                <t t-if="isComboScreen">
+                    <img class="pos-logo" t-on-click="trigger('toggle-debug-widget')"
+                         src="/flexibite_ee_advance/static/src/img/combo1.png" alt="Logo"/>
+                    <span class="custom-heading">
+                        COMBO
+                    </span>
+                </t>
+                <t t-if="isCustomiseScreen">
+                    <img class="pos-logo" t-on-click="trigger('toggle-debug-widget')"
+                         src="/flexibite_ee_advance/static/src/img/customise.png" alt="Logo"/>
+                    <span class="custom-heading">
+                        CUSTOMIZE
+                    </span>
+                </t>
+                <t t-if="isKitchenScreen">
+                    <img class="pos-logo" t-on-click="trigger('toggle-debug-widget')"
+                         src="/flexibite_ee_advance/static/src/img/chef.png" alt="Logo"/>
+                    <span class="custom-heading">
+                        KITCHEN
+                    </span>
+                </t>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('pos-topheader')]" position="before">
+            <UnlockPosScreen/>
+        </xpath>
+        <xpath expr="//Portal" position="replace">
+            <Portal target="'.pos .status-buttons-portal'">
+                <div class="status-buttons">
+                    <t t-if="!env.isMobile">
+                        <CashierName/>
+                    </t>
+                    <t t-if="isTicketButtonShown">
+                        <OrderManagementButton t-if="env.pos.config.manage_orders"/>
+                    </t>
+                    <SaleDetailsButton t-if="env.pos.proxy.printer"/>
+                    <ProxyStatus t-if="env.pos.config.use_proxy"/>
+                    <ClientScreenButton t-if="clientScreenButtonIsShown"/>
+                    <SyncNotification/>
+                    <KitchenScreenButton t-if="isManager" isKitchenScreen="isKitchenScreen"/>
+                    <OrderSyncScreenButton
+                            t-if="env.pos.user and env.pos.user.kitchen_screen_user == 'manager' or env.pos.user.kitchen_screen_user == 'cashier'"/>
+                    <HeaderButton/>
+                </div>
+            </Portal>
+        </xpath>
+        <xpath expr="//div[hasclass('pos-content')]" position="replace">
+            <div class="pos-content">
+                <div class="window">
+                    <div class="subwindow">
+                        <div class="subwindow-container">
+                            <div class="subwindow-container-fix screens">
+                                <t isShown="!tempScreen.isShown" t-component="mainScreen.component"
+                                   t-props="mainScreenProps" t-key="mainScreen.name" orderData="state.orderData"
+                                   orderTypeList="state.orderTypeList" sData="state.sData"/>
+                                <t t-if="tempScreen.isShown" t-component="tempScreen.component"
+                                   t-props="tempScreenProps" t-key="tempScreen.name" t-ref="RfidScaneCoderef"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <DebugWidget t-if="env.isDebug() and state.debugWidgetIsShown"
+                             t-transition="fade"/>
+            </div>
+        </xpath>
+        <xpath expr="//BackToFloorButton" position="replace">
+            <BackToFloorButton isShow="isTicketButtonShown"/>
+        </xpath>
+        <xpath expr="//div[hasclass('status-buttons')]//CashierName" position="before">
+            <CustomerScreenButton t-if="env.pos.config.customer_display"/>
+            <t t-if="env.pos.user.pos_user_type == 'cashier'">
+               <OrdersIconChrome orderCount="state.OrderCount"/>
+           </t>
+        </xpath>
+    </t>
+</templates>
+

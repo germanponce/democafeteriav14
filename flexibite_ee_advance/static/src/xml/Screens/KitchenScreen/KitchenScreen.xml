@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KitchenScreen" owl="1">
+        <div class="kitchen-screen screen" t-ref="kitchen-screen">
+            <ul t-if="state.gridView" class="grid-order-content">
+                <t t-foreach="props.orderData" t-as="order">
+                    <GridOrderCard t-if="order.display" order="order"/>
+                </t>
+            </ul>
+            <ul t-if="!state.gridView" class="order-content" t-ref="order-content">
+                <t t-foreach="props.orderData" t-as="order">
+                    <OrderCard t-if="order.display" order="order"/>
+                </t>
+            </ul>
+            <div t-if="state.tableView" class="order-content">
+
+            </div>
+            <StatisticBox t-if="state.showSBox" showSBox="state.showSBox" showData="props.sData"/>
+            <div class="footer">
+                <button t-if="!state.gridView" class="top-left" t-on-click="clickTopLeft">
+                    <i class="fa fa-caret-left" aria-hidden="true"/>
+                </button>
+                <button t-if="!state.gridView" class="double-left" t-on-click="clickDoubleLeft">
+                    <i class="fa fa-angle-double-left" aria-hidden="true"/>
+                </button>
+                <button t-if="!state.gridView" class="left" t-on-click="clickLeft">
+                    <i class="fa fa-angle-left" aria-hidden="true"/>
+                </button>
+                <button t-if="!state.gridView" class="grid-view" t-on-click="clickGridView">
+                    <i class="fa fa-th-large" aria-hidden="true"/>
+                </button>
+                <button t-if="state.gridView" class="list-view" t-on-click="clickListView">
+                    <i class="fa fa-th-list" aria-hidden="true"/>
+                </button>
+                <button t-if="!state.gridView" class="right" t-on-click="clickRight">
+                    <i class="fa fa-angle-right" aria-hidden="true"/>
+                </button>
+                <button t-if="!state.gridView" class="double-right" t-on-click="clickDoubleRight">
+                    <i class="fa fa-angle-double-right" aria-hidden="true"/>
+                </button>
+                <button t-if="!state.gridView" class="top-right" t-on-click="clickTopRight">
+                    <i class="fa fa-caret-right" aria-hidden="true"/>
+                </button>
+                <FilterSwitch orderTypeList="props.orderTypeList"/>
+                <span class="extra-space">
+                    <div class="chart-button" t-att-class="chartClicked" t-on-click="clickOpenBox">
+                        <i class="fa fa-pie-chart" aria-hidden="true"/>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </t>
+</templates>

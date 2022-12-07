@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="email_template_for_coupon_expire_7" model="mail.template">
+            <field name="name">Coupon Expire</field>
+            <field name="email_from">${(user.email or '')}</field>
+            <field name="subject">Regarding expired your gift card</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="model_id" ref="flexibite_ee_advance.model_aspl_gift_card"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+   <p>Hello ${object.customer_id.name}
+   <br/>
+   <p style="margin-left: 50px;">
+       Your card will be expired on ${object.expire_date}.Please renew your card ${object.card_no}.<br/>
+       Thanks for using our services.
+   </p>
+   </p>
+   <br/>
+   Thank You,
+   <br/>
+   ${user.name}
+</div>
+           ]]></field>
+        </record>
+
+        <record id="email_template_regarding_balance" model="mail.template">
+            <field name="name">Regarding balance of your gift card</field>
+            <field name="email_from">${(user.email or '')}</field>
+            <field name="subject">Regarding balance of your gift card</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="model_id" ref="flexibite_ee_advance.model_aspl_gift_card"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+   <p>Hello ${object.customer_id.name}
+   <br/>
+   <p style="margin-left: 50px;">
+       Your card ${object.card_no} have balance ${object.card_value}.<br/>
+       Thanks for using our services.
+   </p>
+   </p>
+   <br/>
+   Thank You,
+   <br/>
+   ${user.name}
+</div>
+           ]]></field>
+        </record>
+
+        <record id="email_template_exchange_number" model="mail.template">
+            <field name="name">Regarding change gift card number</field>
+            <field name="email_from">${(user.email or '')}</field>
+            <field name="subject">Regarding change gift card number</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="model_id" ref="flexibite_ee_advance.model_aspl_gift_card"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+   <p>Hello ${object.customer_id.name}
+   <br/>
+   <p style="margin-left: 50px;">
+       Your card number has been updated. It has been changed to ${object.card_no}.<br/>
+       Thanks for using our services.
+   </p>
+   </p>
+   <br/>
+   Thank You,
+   <br/>
+   ${user.name}
+</div>
+           ]]></field>
+        </record>
+
+        <record id="email_template_regarding_card_use" model="mail.template">
+            <field name="name">Regarding Card Use</field>
+            <field name="email_from">${(user.email or '')}</field>
+            <field name="subject">Regarding Card Use</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="model_id" ref="flexibite_ee_advance.model_aspl_gift_card_use"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+   <p>Hello ${object.customer_id.name}
+   <br/>
+   <p style="margin-left: 50px;">
+       <p>Your card ${object.card_id.card_no} has been used at our store with following details.</p><br/>
+                                  <b>Receipt Reference </b>: ${object.pos_order_id.pos_reference}<br/>
+                                  <b>Order No</b>     : ${object.pos_order_id.name}<br/>
+                                  <b>Order Date</b>   : ${object.order_date}<br/>
+                                  <b>Order Amount</b> : ${object.pos_order_id.amount_total}<br/>
+                                  <b>Card Amount</b>  : ${object.amount}
+                                <p>Thanks for using our services.</p>
+                                <p>Regards,</p>
+                                <p> ${user.name}</p>
+   </p>
+   </p>
+</div>
+           ]]></field>
+        </record>
+
+        <record id="email_template_birthday_reminder" model="mail.template">
+            <field name="name">Birthday Reminder Template</field>
+            <field name="email_from">${(user.email or '')}</field>
+            <field name="subject">Birthday Wishes</field>
+            <field name="email_to">${object.email}</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+            <p>Dear ${object.name},</p>
+            <br/>
+            <p>Like you, your special day is also important for us. We are sending you our heartiest and sincerest wishes on your birthday enjoy your day to the fullest and have the brightest year ahead. We are looking forward to our strong relationship and bonding for the next number of upcoming years. Happy birthday ${object.name}</p>
+            <br/>
+
+            <p>With Best Regards,</p>
+            <p>${user.company_id.name}</p>
+
+            <br/>
+            <p>Dear ${object.name},</p>
+            <br/>
+
+            <p>Wishing you a very happy birthday and the number of happiest years ahead, we hope our relationship would grow years and years and long good to go, we are honored to have a wonderful customer like you. We respect your feelings and concerns and your all requests are our command and utmost priority for us. We hope that we can serve you our best services years and years ahead. Thank you to have faith in us.</p>
+            <br/>
+
+            <p>With Best Wishes,</p>
+            <p>${user.name}, ${user.company_id.name}</p>
+                ]]></field>
+        </record>
+
+        <record id="email_template_anniversary_reminder" model="mail.template">
+            <field name="name">Anniversary Reminder Template</field>
+            <field name="email_from">${(user.email or '')}</field>
+            <field name="subject">Anniversary Wishes</field>
+            <field name="email_to">${object.email}</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+            Anniversary Wishes
+                ]]></field>
+        </record>
+
+        <!-- session close mail template -->
+        <record id="email_template_pos_z_report" model="mail.template">
+            <field name="name">Z Report - Send by Email</field>
+            <field name="email_from">${(user.email or 'noreply@localhost')|safe}</field>
+            <field name="subject">POS Session ${object.name or ''}</field>
+            <field name="email_to">${(ctx.get('email_to'))}</field>
+            <field name="model_id" ref="model_pos_session"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html">
+                <![CDATA[
+                    <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                        <p>Hello There!</p>
+                        <p>Please find attachment for z report of session ${object.name or ''}.</p>
+                    </div>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

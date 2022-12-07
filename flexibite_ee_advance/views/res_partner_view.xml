@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="aspl_view_customer_form" model="ir.ui.view">
+            <field name="name">Customer Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook>
+                    <page string="Wallet">
+                        <group>
+                            <field name="remaining_wallet_amount"/>
+                        </group>
+                        <group>
+                            <field name="wallet_lines" nolabel='1'>
+                                <tree create="true">
+                                    <field name="order_id"/>
+                                    <field name="cashier_id"/>
+                                    <field name="type"/>
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

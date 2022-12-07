@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="package_product_template_only_form_view" model="ir.ui.view">
+            <field name="name">package.product.template.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="sale_ok" position="before">
+                    <div>
+                        <field name="is_combo"/>
+                        <label for="is_combo"/>
+                    </div>
+                    <div>
+                        <field name="is_packaging"/>
+                        <label for="is_packaging"/>
+                    </div>
+                </field>
+                <xpath expr='//page[4]' position="after">
+                    <page string="Combo" attrs="{'invisible': [('is_combo', '=', False)]}">
+                        <field name="product_combo_ids">
+                            <tree>
+                                <field name="require"/>
+                                <field name="pos_category_id"/>
+                                <field name="display_name"
+                                       attrs="{'invisible': [('require', '=', True)],'required': [('require', '=', False)]}"/>
+                                <field name="product_ids" widget="many2many_tags"
+                                       context="{'is_required': require, 'category_from_line': pos_category_id}"/>
+                                <field name="replaceable"/>
+                                <field name="base_price"/>
+                                <field name="no_of_items"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <group string="">
+                                        <field name="require"/>
+                                        <field name="pos_category_id"/>
+                                        <field name="display_name"
+                                               attrs="{'invisible': [('require', '=', True)],'required': [('require', '=', False)]}"/>
+                                        <field name="product_ids" widget="many2many_tags"
+                                               context="{'is_required': require, 'category_from_line': pos_category_id}"/>
+                                        <field name="no_of_items"/>
+                                    </group>
+                                    <group string="Replace Product">
+                                        <field name="replaceable"/>
+                                        <field name="base_price"/>
+                                    </group>
+
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

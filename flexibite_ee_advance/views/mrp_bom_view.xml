@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_bom_view_inherit" model="ir.ui.view">
+        <field name="name">mrp.bom.view.inherit.form</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="available_in_pos"/>
+            </field>
+            <xpath expr="//page[1]//field[@name='bom_line_ids']" position="replace">
+                <field name="bom_line_ids" widget="one2many"
+                       context="{'default_available_in_pos':available_in_pos,'default_parent_product_tmpl_id': product_tmpl_id, 'default_product_id': False, 'default_company_id': company_id, 'default_bom_id': id}">
+                    <tree string="Components" editable="bottom">
+                        <field name="company_id" invisible="1"/>
+                        <field name="sequence" widget="handle"/>
+                        <field name="product_id" domain="[('available_in_pos', '=', available_in_pos)]"
+                               context="{'default_type': 'product'}"/>
+                        <field name="available_in_pos" invisible="1"/>
+                        <field name="product_tmpl_id" invisible="1"/>
+                        <field name="replaceable"/>
+                        <field name="replaceable_by" attrs="{'invisible' : [('replaceable', '=', False)]}"/>
+                        <field name="replaceable_product_ids" widget="many2many_tags"
+                               domain="[('available_in_pos', '=', True)]"
+                               attrs="{'invisible': ['|', ('replaceable', '=', False), ('replaceable_by', '!=', 'product')]}"/>
+                        <field name="replaceable_category_ids" widget="many2many_tags"
+                               attrs="{'invisible': ['|',('replaceable', '=', False),('replaceable_by','!=','category')]}"/>
+                        <button name="action_see_attachments" type="object" icon="fa-files-o"
+                                aria-label="Product Attachments" title="Product Attachments"
+                                class="float-right oe_read_only"/>
+                        <field name="attachments_count" class="text-left oe_read_only" string=" "/>
+                        <field name="product_qty"/>
+                        <field name="bom_base_price" attrs="{'invisible' : [('replaceable', '=', False)]}"/>
+                        <field name="product_uom_category_id" invisible="1"/>
+                        <field name="parent_product_tmpl_id" invisible="1"/>
+                        <field name="possible_bom_product_template_attribute_value_ids" invisible="1"/>
+                        <field name="product_uom_id" options="{'no_open':True,'no_create':True}"
+                               groups="uom.group_uom"/>
+                        <field name="bom_product_template_attribute_value_ids" widget="many2many_tags"
+                               options="{'no_create': True}"
+                               attrs="{'column_invisible': [('parent.product_id', '!=', False)]}"
+                               groups="product.group_product_variant"/>
+                        <field name="allowed_operation_ids" invisible="1"/>
+                        <field name="operation_id" groups="mrp.group_mrp_routings" optional="hidden"
+                               attrs="{'column_invisible': [('parent.type','not in', ('normal', 'phantom'))]}"
+                               options="{'no_quick_create':True,'no_create_edit':True}"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

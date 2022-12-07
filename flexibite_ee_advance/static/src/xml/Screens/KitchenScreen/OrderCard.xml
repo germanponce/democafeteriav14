@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="OrderCard" owl="1">
+        <li class="card-container">
+            <div class="header" t-attf-style="background-color: {{ headerClass }};">
+                <div class="header-container">
+                    <div class="image">
+                        <img class="order-icon" t-att-src="imageUrl"/>
+                    </div>
+                    <div class="top-line">
+                        <div class="table-name">
+                            Table : <t t-if="props.order.table" t-esc="props.order.table"/>
+                        </div>
+                        <div class="floor-name">
+                            <t t-if="props.order.floor">[<t t-esc="props.order.floor"/>]</t>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="midel-line" t-if="isTakeAway || isDelivery">
+                        <div t-if="isTakeAway" class="table-name">
+                            <center>Take Away</center>
+                        </div>
+                        <div t-if="isDelivery" class="table-name">
+                            <center>Delivery</center>
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="midel-line">
+                        <div class="table-guest">
+                            Guests : <t t-esc="props.order.guests"/>
+                        </div>
+                        <div class="order-time">
+                            <t t-esc="props.order.order_time"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="top-line">
+                        <div class="serve-name">
+                            <t t-esc="props.order.user_name"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                <ul class="cardlines">
+                    <li class="cardline" style="text-align: center;" t-if="env.pos.restaurant_mode == 'quick_service'">
+                        <span class="name" t-attf-style="text-decoration: {{ textStyle }};">
+                            <div class="table-guest" style="float:left">
+                                Token Number :-
+                            </div>
+                            <div class="serve-name" style="float:left;margin-left: 6px;">
+                                <t t-esc="props.order.increment_number"/>
+                            </div>
+                        </span>
+                    </li>
+
+                    <t t-foreach="props.order.order_lines" t-as="line">
+                        <OrderCardLine line="line" popup="false"/>
+                    </t>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <button class="done" t-on-click="clickOrderState" t-attf-style="color: {{ orderStateColor }};">
+                    <t t-esc="props.order.order_state"></t>
+                </button>
+                <button class="print" t-on-click="printOrder">
+                    <i class="fa fa-print" aria-hidden="true"/>
+                </button>
+                <div class="order-ref">
+                    <t t-esc="props.order.order_name"/>
+                </div>
+            </div>
+        </li>
+    </t>
+
+</templates>

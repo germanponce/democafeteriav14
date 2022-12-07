@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KitchenOrderCardPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <Draggable>
+                <div class="popup popup-kitchen-order-card">
+                    <header class="drag-handle header" t-attf-style="background-color: {{ headerClass }};">
+                        <div class="image">
+                            <img class="order-icon" t-att-src="imageUrl"/>
+                        </div>
+                        <div class="top-line">
+                            <div t-if="isDineIn" class="table-name">
+                                Table : <t t-if="props.order.table" t-esc="props.order.table"/>
+                            </div>
+                            <div t-if="isTakeAway" class="table-name">
+                                    Take Away
+                            </div>
+                            <div t-if="isDelivery" class="table-name">
+                                Delivery
+                            </div>
+                            <div class="order-time">
+                                <t t-esc="props.order.order_time"/>
+                            </div>
+                        </div>
+                        <div class="bottom-line">
+                            <div t-if="isDineIn" class="table-guest">
+                                Guests : <t t-esc="props.order.guests"/>
+                            </div>
+                            <div class="serve-name">
+                                <t t-esc="props.order.user_name"/>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="lines-body scrollable-y">
+                        <ul class="cardlines">
+                            <t t-foreach="props.order.order_lines" t-as="line">
+                                <OrderCardLine line="line" popup="true"/>
+                            </t>
+                        </ul>
+                    </div>
+                    <footer class="footer">
+                        <div class="button cancel" t-on-click="cancel">
+                            Close
+                        </div>
+                        <div class="button deliver" t-on-click="clickDeliver">
+                            Deliver
+                        </div>
+                        <div class="button print" t-on-click="printOrder">
+                            <i class="fa fa-print" aria-hidden="true"/>
+                        </div>
+                    </footer>
+                </div>
+            </Draggable>
+        </div>
+    </t>
+
+</templates>

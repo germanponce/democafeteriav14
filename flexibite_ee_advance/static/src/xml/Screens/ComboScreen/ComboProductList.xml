@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboProductList" owl="1">
+        <div class="product-list-container">
+            <div t-if="props.products.length != 0" class="product-list">
+                <t t-foreach="props.products" t-as="product" t-key="product.id">
+                    <ComboProductItem product="product"
+                                      productQuantityLine="productQuantityLine"/>
+                </t>
+            </div>
+            <div t-else="" class="product-list-empty">
+                <div class="product-list-empty">
+                    <p>There are no products in this category.</p>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="BomCategoryButton" owl="1">
+
+        <span class="combo-category-button"
+              t-on-click="trigger('switch-category', props.category.id)"
+              t-att-class="addedClasses">
+            <span class="category-tag">
+                <t t-esc="props.category.name"/>
+            </span>
+        </span>
+    </t>
+
+</templates>

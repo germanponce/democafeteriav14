@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="MaterialReplacePopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-mr material-replace-popup">
+                <header class="title">
+                    <t t-esc="props.name"/>
+                </header>
+
+                <main class="body product_replace col-lg-4 col-md-6 col-sm-12">
+                    <div class="product-list-container">
+                        <t t-foreach="props.products" t-as="product">
+                            <ReplaceProductItem product="product"
+                                                selectedProduct="state.selectedProduct"
+                            />
+                        </t>
+                    </div>
+                </main>
+
+                <footer class="footer">
+                    <div class="button highlight confirm" t-on-click.stop="confirm">
+                        Replace
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+
+    <t t-name="ReplaceProductItem" owl="1">
+        <article class="product" tabindex="0"
+                 t-on-click.stop="trigger('click-product', props.product)"
+                 t-att-data-product-id="props.product.id"
+                 t-attf-aria-labelledby="article_product_{{props.product.id}}">
+            <div class="product-img">
+                <img t-att-src="imageUrl" t-att-alt="props.product.display_name"/>
+            </div>
+            <div class="product-name" t-attf-id="article_product_{{props.product.id}}">
+                <t t-esc="props.product.display_name"/>
+            </div>
+        </article>
+    </t>
+
+</templates>

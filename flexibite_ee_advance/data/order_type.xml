@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="order_type_dine_in" model="order.type">
+            <field name="type">Dine In</field>
+            <field name="color">#ff7477</field>
+        </record>
+
+        <record id="order_type_take_away" model="order.type">
+            <field name="type">Take Away</field>
+            <field name="color">#8bc34a</field>
+        </record>
+
+        <record id="order_type_delivery" model="order.type">
+            <field name="type">Delivery</field>
+            <field name="color">#00bcd4</field>
+        </record>
+
+    </data>
+</odoo>

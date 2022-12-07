@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="MaterialCardLine" owl="1">
+        <li t-if="show" class="materialline" t-attf-style="color: {{ lineColor }};">
+            <span class="operation">
+                <t t-esc="operation"></t>
+            </span>
+            <span class="material-qty">
+                <t t-esc="props.line.qty"/>
+                <span t-if="isChanged">
+                    /<t t-esc="props.line.max"/>
+                </span>
+            </span>
+            <span class="material-name">
+                <span t-if="isReplaced">
+                    <span style="text-decoration: line-through; color: #495057;"><t t-esc="props.line.name"/></span>
+                    <span> </span>
+                    <t t-esc="props.line.replaced_product_name"/>
+                </span>
+                <span t-else="">
+                    <t t-esc="props.line.name"/>
+                </span>
+            </span>
+        </li>
+        <span t-else=""/>
+    </t>
+
+</templates>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//span[hasclass('product-name')]" position="inside">
+            <t t-if="env.pos.user.is_delete_order_line and props.line.state != 'Waiting'">
+                <i t-on-click.stop="DeleteLineFromOrder(props.line)"
+                   class="oe_link_icon fa fa-trash oe_icon line-lot-icon oe_red"
+                   aria-label="Valid product lot"
+                   role="img"
+                   title="Valid product lot"
+                />
+            </t>
+        </xpath>
+        <xpath expr="//ul[hasclass('info-list')]" position="before">
+            <span class="edit-line">
+                <t t-if="props.line.materiallines.length != 0">
+                    <button class="material-info" t-on-click.stop="materialInfoButtonClicked">
+                        <i class="fa fa-info" aria-hidden="true"/>
+                    </button>
+                </t>
+                <t t-if="props.line.materiallines.length != 0 and props.line.state == 'Waiting'">
+                    <button class="customise" t-on-click="customiseIconClicked">
+                        Customize
+                    </button>
+                </t>
+                <t t-if="props.line.get_product().is_combo">
+                    <button class="combo-info" t-on-click.stop="comboInfoButtonClicked">
+                        <i class="fa fa-info" aria-hidden="true"/>
+                    </button>
+                </t>
+                <t t-if="props.line.get_product().is_combo and props.line.state == 'Waiting'">
+                    <button class="edit-combo" t-on-click="comboIconClicked">
+                        Combo
+                    </button>
+                </t>
+            </span>
+        </xpath>
+        <xpath expr="//ul[hasclass('info-list')]" position="inside">
+            <li t-if="props.line.state == 'Waiting'" class="info">
+                <t t-esc="props.line.state"/>
+            </li>
+            <li t-else="" class="info" t-attf-style="color:{{addStateColor}}">
+                <t t-esc="props.line.state"/>
+            </li>
+        </xpath>
+    </t>
+</templates>
+

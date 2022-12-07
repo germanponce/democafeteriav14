@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_remove_product_reason_list" model="ir.ui.view">
+        <field name="name">remove.product.reason.list</field>
+        <field name="model">remove.product.reason</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_remove_product_reason" model="ir.actions.act_window">
+        <field name="name">Remove Product Reason</field>
+        <field name="res_model">remove.product.reason</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_remove_product_reason_list"/>
+    </record>
+
+    <menuitem id="menu_remove_product_reason" parent="point_of_sale.menu_point_of_sale"
+              action="action_remove_product_reason" sequence="6" groups="point_of_sale.group_pos_manager"/>
+</odoo>

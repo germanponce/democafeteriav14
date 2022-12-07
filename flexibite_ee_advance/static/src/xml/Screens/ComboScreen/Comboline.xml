@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="Comboline" owl="1">
+        <li t-on-click="selectLine" class="comboline" t-att-class="addedClasses" t-ref="top">
+                <span class='c-product'>
+                    <div class="c-product-img">
+                        <img t-att-src="imageUrl"/>
+                    </div>
+                </span>
+            <span class="c-product-name">
+                    <t t-if="props.line.is_replaced == true">
+                        <span class="product-name">
+                            <span style="color:#673ab7"><t t-esc="props.line.get_replaced_product_name()"/></span>
+                            <br/>
+                            <span style="text-decoration: line-through;"><t t-esc="props.line.get_product().display_name"/></span>
+                        </span>
+                    </t>
+                <t t-else="">
+                        <t t-if="props.line.get_quantity() == 0">
+                            <span class="product-name">
+                                <span style="text-decoration: line-through;"><t t-esc="props.line.get_product().display_name"/></span>
+                            </span>
+                        </t>
+                    <t t-else="">
+                            <span class="product-name">
+                                <t t-esc="props.line.get_product().display_name"/>
+                            </span>
+                        </t>
+                    </t>
+                <span class="price">
+                        <t t-if="props.line.get_extraPrice() > 0">
+                            <t t-esc="env.pos.format_currency(props.line.get_display_price())"/>
+                        </t>
+                    </span>
+                <ul class="info-list">
+                        <li class="info">
+                            <em>
+                                <t t-esc="props.line.get_quantity_str()"/>
+                                <t t-if="showMax">
+                                    /
+                                    <t t-esc="props.line.get_max_str()"/>
+                                    -
+                                </t>
+                            </em>
+                            <span> </span>
+                            <t t-esc="props.line.get_unit().name"/>
+                        </li>
+                    <li class="info">
+                            <t t-if="!props.line.require">
+                                <span class="category" t-on-click.stop="categoryClicked">
+                                    <t t-esc="props.line.categoryName"/>
+                                    <i class="fa fa-location-arrow" aria-hidden="true"/>
+                                </span>
+                            </t>
+                        <t t-else="">
+                                <em style="color:#875a7b" t-if="props.line.categoryName">
+                                    <t t-esc="props.line.categoryName"/>
+                                </em>
+                            <span style="color:#c86e6e;font-size:14px;">
+                                    (Required)
+                                </span>
+                            </t>
+                        </li>
+                    </ul>
+                </span>
+            <span class="line-button">
+                <t t-if="props.line.materiallines.length != 0">
+                    <button class='button ingredients' t-on-click.stop="ingredientsButtonClicked">
+                        <i class="fa fa-info" aria-hidden="true"/>
+                    </button>
+                </t>
+                <t t-if="props.line.materiallines.length != 0">
+                    <button class='button customise' t-on-click.stop="customiseButtonClicked">
+                        Customize
+                    </button>
+                </t>
+
+                <t t-if="props.line.replaceable == true and props.onReplace == false ">
+                    <button class='button replace' t-on-click.stop="replaceButtonClicked">
+                        Replace
+                    </button>
+                </t>
+                <t t-if="props.line.replaceable == true and props.onReplace == true ">
+                    <button class='button close' t-on-click.stop="closeButtonClicked">
+                        Close
+                    </button>
+                </t>
+                <t t-if="props.line.is_replaced == true">
+                    <button class='button reset' t-on-click.stop="resetButtonClicked">
+                        Reset
+                    </button>
+                </t>
+            </span>
+        </li>
+    </t>
+
+</templates>

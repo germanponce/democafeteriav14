@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="aspl_monitor_product_template_only_form_view" model="ir.ui.view">
+            <field name="name">aspl.monitor.product.template.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="sale_ok" position="before">
+                    <div>
+                        <field name="is_material_monitor"/>
+                        <label for="is_material_monitor"/>
+                    </div>
+                </field>
+                <field name="company_id" position="after">
+                    <field name="material_monitor_qty"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="GridOrderCard" owl="1">
+        <li class="grid-card-container" t-on-click="clickGridCard">
+            <div class="header" t-attf-style="background-color: {{ headerClass }};">
+                <div class="image">
+                    <img class="order-icon" t-att-src="imageUrl"/>
+                </div>
+                <div t-if="isDineIn" class="table-name">
+                    Table : <t t-if="props.order.table" t-esc="props.order.table"/>
+                </div>
+                <div t-if="isTakeAway" class="table-name">
+                        Take Away
+                    </div>
+                <div t-if="isDelivery" class="table-name">
+                        Delivery
+                    </div>
+                <div t-if="isDineIn" class="table-guest">
+                    Guests : <t t-esc="props.order.guests"/>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="item-count">
+                    Item : <span style="font-size: 13px;">
+                                <t t-esc="props.order.order_lines.length"/>
+                           </span>
+                </div>
+                <div class="order-ref">
+                    <t t-esc="props.order.order_name"/>
+                </div>
+                <div class="order-time">
+                    <t t-esc="props.order.order_time"/>
+                </div>
+                <div class="serve-name">
+                    <t t-esc="props.order.user_name"/>
+                </div>
+            </div>
+        </li>
+    </t>
+
+</templates>

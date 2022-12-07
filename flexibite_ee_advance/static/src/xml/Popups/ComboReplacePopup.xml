@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboReplacePopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-cr combo-replace-popup">
+                <header class="title">
+                    <t t-esc="props.name"/>
+                </header>
+
+                <main class="combo_replace col-lg-4 col-md-6 col-sm-12">
+                    <div class="product-list-container">
+                        <ProductsWidget/>
+                    </div>
+                </main>
+
+                <footer class="footer">
+                    <div class="button highlight confirm" t-on-click="confirm">
+                        Replace
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>

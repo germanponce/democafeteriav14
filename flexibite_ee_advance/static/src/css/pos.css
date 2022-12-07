@@ -1,0 +1,2263 @@
+.pos .button.highlight1 {
+    background: #7f82ac !important;
+    border: solid 1px #5e618e !important;
+    color: white !important;
+}
+/** order type button **/
+.pos .actionpad .order-type{
+    display: flex;
+    width: 100%;
+}
+.pos .actionpad .type-button {
+    width: 100%;
+    display: inline;
+    vertical-align: middle;
+    border-bottom: 1px solid #bfbfbf;
+    border-right: 1px solid #bfbfbf;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    transition: all 150ms linear;
+}
+.pos .actionpad .type-button:hover {
+    background: #efefef;
+}
+.pos .actionpad .type-button:active {
+    background: black;
+    border-color: black;
+    color: white;
+}
+.pos .actionpad .type-button.selected-mode {
+    color: white;
+    background: #6EC89B;
+    border-color: transparent;
+}
+.pos span.price-label{
+    float: left;
+    margin-top: 21px;
+    font-size: 18px;
+}
+.pos label.switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    float: left;
+    margin: 10px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.pos label.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pos .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.pos .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.pos input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.pos input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.pos input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.pos .slider.round {
+  border-radius: 34px;
+}
+
+.pos .slider.round:before {
+  border-radius: 50%;
+}
+
+/* ******************** Custom order Screen ******************** */
+
+.pos .material-bar-container{
+    padding: 0;
+    background: #d3d3d3;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+}
+.pos .custom-name{
+    float: left;
+    display: inline-block;
+    line-height: 48px;
+    height: 48px;
+    min-width: 100%;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+/*  ********* The MaterialWidget  ********* */
+
+.pos .custom-heading {
+    height: 35px;
+    margin-top: 20px;
+    vertical-align: middle;
+    position: absolute;
+    margin-left: 58PX;
+    font-size: 22px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 6px;
+}
+.pos .material-container {
+    top: 0px;
+    width:100%;
+    height: 100%;
+    background: white;
+    flex-grow: 1;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.pos .scrollable-y{
+    overflow: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.pos .material{
+    background: white;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    font-size: 16px;
+    text-align: left;
+    max-width: 500px;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.pos .material .material-empty {
+    text-align: center;
+    margin: 48px;
+    color: #DDD;
+}
+.pos .material .material-empty .fa {
+    font-size: 64px;
+}
+.pos .material .material-empty h1 {
+    font-size: 20px;
+}
+
+.pos .material .summary{
+    width:100%;
+    text-align:right;
+    font-weight: bold;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+.pos .material .summary .line{
+    float: right;
+    margin-right:15px;
+    margin-left: 15px;
+    padding-top:5px;
+    border-top: solid 2px;
+    border-color:#777;
+}
+.pos .material .summary .plus{
+    float: right;
+    margin-right:15px;
+    margin-left: 15px;
+    padding-top:0px;
+}
+.pos .material .summary .total {
+    font-size: 22px;
+    border-top: solid 2px;
+    border-color: #777;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+.pos .material .summary .price {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #6ec89b;
+}
+.pos .material .summary .addons {
+    font-size: 20px;
+    color: #875a7b;
+}
+.pos .material .summary .line .subentry{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+.pos .material .summary .line.empty{
+    text-align: right;
+    border-color:#BBB;
+    color:#999;
+}
+
+.pos .material .summary .fidpoints{
+    position: absolute;
+    left: 20px;
+    padding: 10px;
+    color: #6EC89B;
+    background: rgba(110, 200, 155, 0.17);
+    border-radius: 3px;
+}
+
+.submit-kitchen-button {
+    float: left;
+    background: rgb(61, 235, 82);
+    color: white;
+    padding: 12px 20px;
+    margin: 0px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/*  ********* The MaterialLineWidget  ********* */
+
+.pos .material .materialline{
+    width:100%;
+    margin:0px;
+    padding-top:5px;
+    padding-bottom:10px;
+    padding-left:15px;
+    padding-right:15px;
+    border-bottom: 1px solid #f0eeee;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: background 250ms ease-in-out;
+       -moz-transition: background 250ms ease-in-out;
+            transition: background 250ms ease-in-out;
+}
+.pos .material .materialline:active{
+    background: rgba(140,143,183,0.05);
+    -webkit-transition: background 50ms ease-in-out;
+       -moz-transition: background 50ms ease-in-out;
+            transition: background 50ms ease-in-out;
+}
+.pos .material .materialline.empty:active{
+    background: transparent;
+    cursor: default;
+}
+
+.pos .material .materialline.selected{
+    background: rgba(140,143,183,0.2);
+    -webkit-transition: background 250ms ease-in-out;
+       -moz-transition: background 250ms ease-in-out;
+            transition: background 250ms ease-in-out;
+    cursor: default;
+}
+.pos .material .materialline .product-name{
+    padding:0;
+    display:inline-block;
+    font-weight: bold;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.pos .material .materialline .price{
+    padding:0;
+    font-weight: bold;
+    float:right;
+}
+.pos .material .materialline .info-list{
+    color: #888;
+    margin-left:10px;
+}
+.pos .material .materialline .info-list em{
+    color: #777;
+    font-weight: bold;
+    font-style:normal;
+}
+.pos .material .materialline .button.replace{
+    float: right;
+}
+.pos .material .materialline .button.close{
+    float: right;
+}
+.pos .material .materialline .button.reset{
+    float: right;
+    margin-right:10px;
+}
+
+/*  ********* The materialpad********* */
+
+.pos .materialpad {
+    display: inline-block;
+    padding: 0;
+    margin: 16px;
+    margin-top: 8px;
+    text-align: center;
+    vertical-align: top;
+    width: 467px;
+}
+.pos .materialpad .button {
+    position: relative;
+    display: block;
+    height: 54px;
+    width: 120px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #555555;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #bfbfbf;
+    transition: all 150ms linear;
+}
+.pos .materialpad .button:hover {
+    background: #efefef;
+}
+.pos .materialpad .button:active {
+    background: black;
+    border-color: black;
+    color: white;
+}
+.pos .materialpad .button:disabled  {
+    opacity: 50%;
+    cursor: auto;
+}
+.pos .materialpad .button:first-child {
+    border-top-left-radius: 4px;
+}
+.pos .materialpad .button:last-child {
+    border-bottom-left-radius: 4px;
+}
+.pos .materialpad .button.add {
+    height: 110px;
+    float: left;
+    border: 2px solid #bfbfbf;
+}
+.pos .materialpad .button.plus {
+    height: 70px;
+    float:right;
+    width:80px;
+    border:none;
+    border-radius:0px;
+    border-top: 2px solid #bfbfbf;
+    border-left: 2px solid #bfbfbf;
+    border-right: 2px solid #bfbfbf;
+    border-top-left-radius: 4px;
+}
+.pos .materialpad .button.minus {
+    height: 70px;
+    width:80px;
+    float:right;
+    border:none;
+    border-radius:0px;
+    border-top: 2px solid #bfbfbf;
+    border-right: 2px solid #bfbfbf;
+    border-top-right-radius: 4px;
+}
+.pos .materialpad .button.reset {
+    height: 50px;
+    margin-top: 85px;
+    margin-left: 215px;
+    width: 80px;
+    margin-top: -50px;
+    border: 2px solid #bfbfbf;
+}
+.pos .materialpad .button.discard {
+    height: 50px;
+    margin-left: 215px;
+    width: 80px;
+    margin-top: -60px;
+    border: 2px solid #bfbfbf;
+}
+.pos .materialpad .button.save {
+    height: 50px;
+    margin-left: 130px;
+    width: 80px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border: 2px solid #bfbfbf;
+}
+.pos .materialpad .button.back {
+    height: 50px;
+    margin-left: 130px;
+    width: 80px;
+    margin-top: 10px;
+    border: 2px solid #bfbfbf;
+}
+.pos .materialpad .button.delete {
+    height: 40px;
+    margin-left: 307px;
+    width: 160px;
+    margin-top: -41px;
+    border: 2px solid #bfbfbf;
+    border-radius: 0px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pos .materialpad .button.add .add-circle {
+    display: block;
+    font-size: 32px;
+    line-height: 54px;
+    padding-top: 6px;
+    background: rgb(86, 86, 86);
+    color: white;
+    width: 60px;
+    margin: auto;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+.pos .materialpad .button.plus .plus-circle {
+    display: block;
+    font-size: 32px;
+}
+.pos .materialpad .button.minus .minus-circle {
+    display: block;
+    font-size: 32px;
+}
+.pos .materialpad .button.add .add-circle .fa {
+    position: relative;
+    top: -1px;
+    right: 3px;
+}
+.pos .materialpad .button.delete .delete-circle {
+    display: block;
+    font-size: 20px;
+}
+
+/*  ********* The orderline********* */
+.pos .order .orderline .edit-line{
+    float: right;
+    width: 26%;
+}
+.pos .order .orderline button.customise{
+    float: right;
+    background: white;
+    color: #875a7b;
+    font-weight: 900;
+    border: 2px solid #875a7b;
+    margin-left: 10px;
+    margin-top: 3px;
+    line-height: 10px;
+    border-radius: 0px;
+}
+.pos .order .orderline button.edit-combo{
+    float: right;
+    background: white;
+    color: #875a7b;
+    font-weight: 900;
+    border: 2px solid #875a7b;
+    margin-left: 10px;
+    margin-top: 3px;
+    line-height: 10px;
+    border-radius: 0px;
+}
+.pos .order .orderline button.combo-info{
+    float: right;
+    margin-top: 3px;
+    font-size: 13px;
+    border-radius: 0px;
+    background: white;
+    color: #875a7b;
+    border: 2px solid #875a7b;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+    padding-top: 2px;
+    margin-left: 5px;
+}
+.pos .order .orderline button.material-info{
+    float: right;
+    margin-top: 3px;
+    font-size: 13px;
+    border-radius: 0px;
+    background: white;
+    color: #875a7b;
+    border: 2px solid #875a7b;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+    padding-top: 2px;
+    margin-left: 5px;
+}
+
+/*  ********* material replace popup ********* */
+.pos .modal-dialog .popup-mr{
+    max-width: 60%;
+    max-height: 500px;
+    height: auto;
+}
+.pos .rightpane-header .replace-tag{
+    line-height: 48px;
+    font-size: 22px;
+    flex: auto;
+}
+
+/* ******** Create Combo Screen ********* */
+
+.pos .combo-bar-container{
+    padding: 0;
+    background: #d3d3d3;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+}
+.pos .custom-name{
+    float: left;
+    display: inline-block;
+    line-height: 48px;
+    height: 48px;
+    min-width: 100%;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+/*  ********* The ComboWidget  ********* */
+
+.pos .combo-container{
+    top: 0px;
+    width:100%;
+    height: 100%;
+    background: white;
+    flex-grow: 1;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.pos .scrollable-y{
+    overflow: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.pos .combo{
+    background: white;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    font-size: 16px;
+    text-align: left;
+    max-width: 500px;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.pos .combo .combo-empty {
+    text-align: center;
+    margin: 48px;
+    color: #DDD;
+}
+.pos .combo .combo-empty .fa {
+    font-size: 64px;
+}
+.pos .combo .combo-empty h1 {
+    font-size: 20px;
+}
+
+.pos .combo .summary{
+    width:100%;
+    text-align:right;
+    font-weight: bold;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+.pos .combo .summary .line{
+    float: right;
+    margin-right:15px;
+    margin-left: 15px;
+    padding-top:5px;
+    border-top: solid 2px;
+    border-color:#777;
+}
+.pos .combo .summary .plus{
+    float: right;
+    margin-right:15px;
+    margin-left: 15px;
+    padding-top:0px;
+}
+.pos .combo .summary .total {
+    font-size: 22px;
+    border-top: solid 2px;
+    border-color: #777;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+.pos .combo .summary .price {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #6ec89b;
+}
+.pos .combo .summary .extra {
+    font-size: 20px;
+    color: #875a7b;
+}
+.pos .combo .summary .line .subentry{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+.pos .combo .summary .line.empty{
+    text-align: right;
+    border-color:#BBB;
+    color:#999;
+}
+
+.pos .combo .summary .fidpoints{
+    position: absolute;
+    left: 20px;
+    padding: 10px;
+    color: #6EC89B;
+    background: rgba(110, 200, 155, 0.17);
+    border-radius: 3px;
+}
+
+.submit-kitchen-button {
+    float: left;
+    background: rgb(61, 235, 82);
+    color: white;
+    padding: 12px 20px;
+    margin: 0px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/*  ********* The ComboLine  ********* */
+
+.pos .combo .comboline .line-button {
+    padding: 0;
+    display: inline-block;
+    width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: right;
+}
+.pos .combo .comboline button.customise{
+    float: right;
+    background: white;
+    color: #5b5d88;
+    font-weight: 900;
+    border: 2px solid #7f82ac;
+    border-radius: 0px;
+    line-height: 12px;
+    margin-right: 5px;
+}
+.pos .combo .comboline button.ingredients{
+    float: right;
+    color: #555555;
+    border: none;
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 2px;
+    padding-top: 3px;
+    border-radius: 0px;
+    border: 2px solid #7f82ac;
+    background: #fff;
+}
+.pos .combo .comboline button.replace{
+    float: right;
+    margin-left: 10px;
+    line-height: 10px;
+    margin-top: 25px;
+}
+.pos .combo .comboline button.close{
+    float: right;
+    margin-left: 10px;
+    line-height: 10px;
+    margin-top: 25px;
+}
+.pos .combo .comboline .button.reset{
+    float: right;
+    margin-right:70px;
+    margin-left: 10px;
+    line-height: 10px;
+    margin-top: -20px;
+}
+.pos .combo .comboline .category{
+    color: #875a7b;
+    cursor: pointer;
+    font-weight: bold;
+}
+.pos .combo .comboline .category:hover{
+    color: #6ec89b;
+}
+.pos .combo .comboline .category:active{
+    color: black;
+}
+.pos .combo .comboline .c-product {
+    position:relative;
+    vertical-align: top;
+    display: inline-block;
+    line-height: 63px;
+    font-size: 11px;
+    width: 75px;
+    height:63px;
+    background:#fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    border-bottom-width: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.pos .combo .comboline .c-product-img {
+    position: relative;
+    width: 75px;
+    height: 63px;
+    background: white;
+    text-align: center;
+}
+.pos .combo .comboline .c-product-img img {
+    max-height: 63px;
+    max-width:  75px;
+    vertical-align: middle;
+}
+.pos .combo .comboline .c-product-name{
+    padding:0;
+    display:inline-block;
+    width:50%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+}
+
+.pos .combo .comboline{
+    width:100%;
+    margin:0px;
+    padding-top:3px;
+    padding-bottom:10px;
+    padding-left:15px;
+    padding-right:15px;
+    border-bottom: 1px solid #f0eeee;
+    padding-top: 10px;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: background 150ms ease-in-out;
+       -moz-transition: background 150ms ease-in-out;
+            transition: background 150ms ease-in-out;
+}
+.pos .combo .comboline:active{
+    background: rgba(140,143,183,0.05);
+    -webkit-transition: background 50ms ease-in-out;
+       -moz-transition: background 50ms ease-in-out;
+            transition: background 50ms ease-in-out;
+}
+.pos .combo .comboline.empty:active{
+    background: transparent;
+    cursor: default;
+}
+
+.pos .combo .comboline.selected{
+    background: rgba(140,143,183,0.2);
+    -webkit-transition: background 250ms ease-in-out;
+       -moz-transition: background 250ms ease-in-out;
+            transition: background 250ms ease-in-out;
+    cursor: default;
+}
+.pos .combo .comboline .product-name{
+    padding:0;
+    display:inline-block;
+    font-weight: bold;
+    width:70%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.pos .combo .comboline .price{
+    padding:0;
+    float:right;
+    font-size : 14px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+.pos .combo .comboline .info-list{
+    color: #888;
+    margin-left:10px;
+}
+.pos .combo .comboline .info-list em{
+    color: #777;
+    font-weight: bold;
+    font-style:normal;
+}
+{
+    border-bottom: 1px solid #f0eeee;
+    margin-bottom: 10px;
+}
+
+/*  ********* The Combopad********* */
+
+.pos .combopad {
+    display: inline-block;
+    padding: 0;
+    margin: 16px;
+    margin-top: 8px;
+    text-align: center;
+    vertical-align: top;
+    width: 467px;
+}
+.pos .combopad .button {
+    position: relative;
+    display: block;
+    height: 54px;
+    width: 95px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #555555;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #bfbfbf;
+    transition: all 150ms linear;
+}
+.pos .combopad .button:disabled  {
+    opacity: 50%;
+    cursor: auto;
+}
+.pos .combopad .button:hover {
+    background: #efefef;
+}
+.pos .combopad .button:active {
+    background: black;
+    border-color: black;
+    color: white;
+}
+.pos .combopad .button:first-child {
+    border-top-left-radius: 4px;
+}
+.pos .combopad .button:last-child {
+    border-bottom-left-radius: 4px;
+}
+.pos .combopad .button.add {
+    height: 110px;
+    float: left;
+    border: 2px solid #bfbfbf;
+}
+.pos .combopad .button.plus {
+    height: 70px;
+    float:right;
+    width:60px;
+    border:none;
+    border-radius:0px;
+    border: 2px solid #bfbfbf;
+    border-top-left-radius: 4px;
+}
+.pos .combopad .button.minus {
+    height: 70px;
+    width:60px;
+    float:right;
+    border:none;
+    border-radius:0px;
+    border: 2px solid #bfbfbf;
+    border-top-right-radius: 4px;
+}
+.pos .combopad .button.reset {
+    height: 50px;
+    margin-top: 85px;
+    margin-left: 185px;
+    width: 72px;
+    margin-top: -50px;
+    border: 2px solid #bfbfbf;
+}
+.pos .combopad .button.discard {
+    height: 50px;
+    margin-left: 185px;
+    width: 72px;
+    margin-top: -60px;
+    border: 2px solid #bfbfbf;
+}
+.pos .combopad .button.save {
+    height: 50px;
+    margin-left: 105px;
+    width: 72px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border: 2px solid #bfbfbf;
+}
+.pos .combopad .button.back {
+    height: 50px;
+    margin-left: 105px;
+    width: 72px;
+    margin-top: 10px;
+    border: 2px solid #bfbfbf;
+}
+.pos .combopad .button.split {
+    height: 50px;
+    margin-left: 265px;
+    width: 72px;
+    margin-top: -110px;
+    margin-bottom: 10px;
+    border: 2px solid #bfbfbf;
+}
+.pos .combopad .button.merge {
+    height: 50px;
+    margin-left: 265px;
+    width: 72px;
+    margin-top: 10px;
+    border: 2px solid #bfbfbf;
+}
+.pos .combopad .button.delete {
+    height: 40px;
+    margin-left: 347px;
+    width: 120px;
+    margin-top: -41px;
+    border: 2px solid #bfbfbf;
+    border-radius: 0px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pos .combopad .button.add .add-circle {
+    display: block;
+    font-size: 32px;
+    line-height: 54px;
+    padding-top: 6px;
+    background: rgb(86, 86, 86);
+    color: white;
+    width: 60px;
+    margin: auto;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+.pos .combopad .button.plus .plus-circle {
+    display: block;
+    font-size: 32px;
+}
+.pos .combopad .button.minus .minus-circle {
+    display: block;
+    font-size: 32px;
+}
+.pos .combopad .button.add .add-circle .fa {
+    position: relative;
+    top: -1px;
+    right: 3px;
+}
+.pos .combopad .button.delete .delete-circle {
+    display: block;
+    font-size: 20px;
+}
+
+/*  ********* The Combo Category Widget********* */
+
+.pos .combo-category-button{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 0px 12px;
+    cursor: pointer;
+    flex: 1;
+    text-align: left;
+    background: rgb(229, 229, 229);
+    border-right: solid 1px #d3d3d3;
+    border-top: solid 1px #d3d3d3;
+    line-height: 48px;
+    height: 47px;
+    min-width: 48px;
+}
+.pos .combo-category-button:active{
+    color: white;
+    background: black;
+
+    -webkit-transition-property: background, border;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+}
+.pos .combo-category-button .selection-tag {
+    top: 2px;
+    right: 2px;
+    vertical-align: top;
+    color: white;
+    line-height: 13px;
+    background: #7f82ac;
+    padding: 2px 5px;
+    border-radius: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pos .combo-category-button .category-tag {
+    padding: 0;
+    display: inline-block;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pos .c_selected{
+    background: rgb(110,200,155);
+    color: white;
+    font-weight: bold;
+}
+.pos .product .clear-tag {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    vertical-align: top;
+    color: #ffffff;
+    line-height: 20px;
+    background: #555555;
+    padding: 2px;
+    border-radius: 2px;
+    width: 20px;
+    height: 25px;
+    font-size: 22px;
+}
+
+/*  ********* combo replace popup ********* */
+.pos .modal-dialog .popup-cr{
+    max-width: 60%;
+    max-height: 500px;
+    height: auto;
+}
+.pos .popup .combo_replace{
+    font-weight: normal;
+    font-size: 18px;
+    margin: 0px;
+    max-height: 350px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+/*  ********* material info popup ********* */
+
+.pos .popup.popup-material-info {
+    top: 146px;
+    left: 0px;
+    transform: none;
+}
+.pos .popup.popup-material-info span.name{
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.pos .popup.popup-material-info .info {
+    overflow-y: auto;
+    max-height: 273px;
+    font-size: 16px;
+    width: auto;
+    line-height: 50px;
+    margin-top: -1px;
+    border-top: solid 3px rgba(60,60,60,0.1);
+
+}
+.pos .popup.popup-material-info .info-item {
+    width: auto;
+    background: rgb(230,230,230);
+    cursor: pointer;
+    text-align: left;
+    padding: 0px 16px;
+}
+.pos .popup.popup-material-info .info-item:nth-child(odd) {
+    background: rgb(247,247,247);
+}
+.pos .popup.popup-material-info .info-item .product-name{
+    padding:0;
+    font-weight: bold;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.pos .popup.popup-material-info .info-item .price_extra {
+    margin-left: 0.5em;
+    padding: 0.2em 0.4em;
+    border-radius: 10rem;
+    color: #FFFFFF;
+    background-color: #6c757d;
+}
+
+/*  ********* Comboline merge popup ********* */
+
+.pos .modal-dialog .popup-mg{
+    max-width: 60%;
+    max-height: 600px;
+    height: auto;
+}
+.pos .merge_combo_line {
+    overflow: auto;
+    white-space: nowrap;
+    max-height: 350px;
+    font-size: 16px;
+    width: auto;
+    line-height: 50px;
+    margin-top: -1px;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.pos .merge_combo_line .head{
+    width: 100%;
+    background: #cacaca;
+    display: inline-block;
+}
+.pos .merge_combo_line .default-select{
+    width: 100%;
+    background: #7f82ac;
+    color: #fff;
+    display: inline-block;
+}
+.pos .merge_combo_line .head.new_select{
+    width: 100%;
+    background: #6ec89b;
+    color: #fff;
+    display: inline-block;
+}
+.pos .merge_combo_line .head .price-tag {
+    top: 2px;
+    right: 2px;
+    color: white;
+    line-height: 13px;
+    background: #7f82ac;
+    padding: 2px 5px;
+    border-radius: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+}
+.pos .merge_combo_line .default-select .price-tag {
+    top: 2px;
+    right: 2px;
+    color: #7f82ac;
+    line-height: 13px;
+    background: #fff;
+    padding: 2px 5px;
+    border-radius: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+}
+
+.pos .merge_combo_line .comboline {
+    margin-bottom: 1em;
+    display: inline-block;
+    white-space: normal;
+    width: 30%;
+    padding-left: 0.5em;
+    vertical-align: top;
+}
+
+.pos .popup.merge-comboline-popup .info {
+    overflow-y: auto;
+    max-height: 273px;
+    font-size: 16px;
+    width: auto;
+    line-height: 50px;
+    margin-top: -1px;
+    border-top: solid 3px rgba(60,60,60,0.1);
+
+}
+.pos .popup.merge-comboline-popup .info-item {
+    width: auto;
+    background: rgb(230,230,230);
+    cursor: pointer;
+    text-align: left;
+    padding: 0px 16px;
+}
+.pos .popup.merge-comboline-popup .info-item:nth-child(odd) {
+    background: rgb(247,247,247);
+}
+.pos .popup.merge-comboline-popup .info-item .product-name{
+    padding:0;
+    font-weight: bold;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.pos .popup.merge-comboline-popup .info-item .price_extra {
+    margin-left: 0.5em;
+    padding: 0.2em 0.4em;
+    border-radius: 10rem;
+    color: #FFFFFF;
+    background-color: #6c757d;
+}
+
+
+/*  ********* combo info popup **********/
+
+.pos .popup.popup-combo-info {
+    top: 146px;
+    left: 0px;
+    transform: none;
+}
+.pos .popup.popup-combo-info span.name{
+    font-size: 15px;
+    font-weight: normal;
+}
+.pos .popup.popup-combo-info .info {
+    overflow-y: auto;
+    max-height: 273px;
+    font-size: 16px;
+    width: auto;
+    line-height: 50px;
+    margin-top: -1px;
+    border-top: solid 3px rgba(60,60,60,0.1);
+
+}
+.pos .popup.popup-combo-info .info-item {
+    width: auto;
+    background: rgb(230,230,230);
+    cursor: pointer;
+    text-align: left;
+    padding: 0px 16px;
+}
+.pos .popup.popup-combo-info .info-item:nth-child(odd) {
+    background: rgb(247,247,247);
+}
+.pos .popup.popup-combo-info .info-item .product-name{
+    padding:0;
+    font-weight: bold;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.pos .popup.popup-combo-info .info-item .price_extra {
+    margin-left: 0.5em;
+    padding: 0.2em 0.4em;
+    border-radius: 10rem;
+    color: #FFFFFF;
+    background-color: #6c757d;
+}
+.pos .popup.popup-combo-info .info-item .material_info {
+    float: right;
+}
+.pos .popup.popup-combo-info .info-item .material_info .material-info{
+    padding: 4px;
+    min-width: 30px;
+    font-size: 14px;
+}
+.pos-receipt .pos-receipt-combo-price-align{
+    float: right;
+    margin-right: 25%;
+}
+.pos-receipt .pos-receipt-combo-material-price-align{
+    float: right;
+    margin-right: 26%;
+}
+.pos-receipt .pos-receipt-combo-material{
+    font-size: 75%;
+    margin-left: 3%;
+}
+
+/**************** Kitchen Screen ************************/
+.pos .kitchen-button {
+    height: 20px;
+    vertical-align:middle;
+}
+.pos .kitchen-screen{
+    background-image: linear-gradient(to left,
+            #a2c0e2, #acc6e5, #b6cde8,
+            #bfd3eb, #c9daee, #cfdef0,
+            #d5e2f1, #dbe6f3, #dee9f4,
+            #e2ebf5, #e5eef6, #e9f0f7);
+    background: #edf2fb;
+}
+.pos .kitchen-screen .order-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    white-space: nowrap;
+    margin-bottom: 70px;
+    scroll-behavior: smooth;
+    margin-top: 25px;
+}
+.pos .kitchen-screen .order-content::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    display: none;
+}
+
+/* Statistic Box */
+
+.pos .kitchen-screen .statistic-box{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    padding: 15px 10px;
+    height: 100px;
+    width: 200px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #d5dae2, #feffff);
+    box-shadow:  5px 5px 8px #c9ced5,
+                 -5px -5px 8px #ffffff;
+}
+.pos .kitchen-screen .footer{
+    width: 100%;
+    line-height: 48px;
+    position: fixed;
+    bottom: 0px;
+    background: #ccdbf5;
+    border-radius: 0px;
+    background: #edf2fb;
+    box-shadow:  5px 5px 10px #dadfe7,
+                 -5px -5px 10px #ffffff;
+}
+.pos .kitchen-screen .footer .left{
+    height: 36px;
+    width: 36px;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0px;
+    color: #577294b0;
+    vertical-align: middle;
+    border: none;
+    margin-right: 50px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .right{
+    height: 36px;
+    width: 36px;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0px;
+    color: #577294b0;
+    vertical-align: middle;
+    border: none;
+    margin-left: 50px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .double-left{
+    height: 36px;
+    width: 36px;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0px;
+    color: #577294b0;
+    vertical-align: middle;
+    border: none;
+    margin-right: 15px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .double-right{
+    height: 36px;
+    width: 36px;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0px;
+    color: #577294b0;
+    vertical-align: middle;
+    border: none;
+    margin-left: 15px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .top-left{
+    line-height: 48px;
+    float: left;
+    width: 36px;
+    left: 0px;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0px;
+    vertical-align: middle;
+    color: #577294b0;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .top-right{
+    line-height: 48px;
+    float: right;
+    width: 36px;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0px;
+    vertical-align: middle;
+    color: #577294b0;
+    border: none;
+    border-radius: 4px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .grid-view{
+    height: 36px;
+    width: 36px;
+    font-size: 25px;
+    padding: 0px;
+    color: #4caf50a6;
+    vertical-align: middle;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .list-view{
+    height: 36px;
+    width: 36px;
+    font-size: 23px;
+    padding: 0px;
+    color: #4caf50a6;
+    vertical-align: middle;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .table-view{
+    height: 36px;
+    width: 36px;
+    font-size: 23px;
+    padding: 0px;
+    color: #795548ad;
+    vertical-align: middle;
+    border: none;
+    margin-left: 30px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+
+
+.pos .kitchen-screen .footer .filter-switch{
+    width: 180px;
+    display: inline-block;
+    float: left;
+}
+.pos .kitchen-screen .footer .extra-space{
+    width: 180px;
+    display: inline-block;
+    float: right;
+}
+.pos .kitchen-screen .footer .extra-space .chart-button{
+    display: inline-block;
+    font-size: 16px;
+    color: #795548;
+    font-weight: bold;
+    line-height: 34px;
+    width: 34px;
+    text-align:center;
+    vertical-align:middle;
+    cursor: pointer;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .kitchen-screen .footer .extra-space .chart-button.clicked{
+    background: #edf2fb;
+    box-shadow: inset 3px 3px 7px #dadfe7,
+                inset -3px -3px 7px #ffffff;
+}
+.pos .kitchen-screen .footer .filter-switch .type-switch{
+    display: inline-block;
+    line-height: 36px;
+    width: 36px;
+    margin-left: 20px;
+    text-align:center;
+    vertical-align:middle;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #e6e6e6;
+    background: #edf2fb;
+    box-shadow: inset 5px 5px 8px #dfe3ec,
+                inset -5px -5px 8px #fbffff;
+}
+.pos .kitchen-screen .footer .filter-switch .type-switch:active{
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d5dae2, #feffff);
+    box-shadow:  2px 2px 3px #e1e6ee,
+                 -2px -2px 3px #f9feff;
+}
+.pos .kitchen-screen .footer .filter-switch .type-switch.selected{
+    border: 2px solid;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow:  5px 5px 9px #d1d5dd,
+                 -5px -5px 9px #ffffff;
+}
+.pos .kitchen-screen .footer .filter-switch .switch-icon{
+    height: 18px;
+    vertical-align:middle;
+}
+
+/* empty */
+.pos .kitchen-screen .empty-list{
+    width: 30%;
+    height: auto;
+    margin-left: 33%;
+    margin-top: 50px;
+}
+.pos .kitchen-screen .empty-list .message{
+    font-size: 90px;
+    float: left;
+    margin-top: 50px;
+    color: #cad5e9;
+}
+.pos .kitchen-screen .empty-list .empty-icon{
+    width: 200px;
+}
+
+/* Order Card */
+.pos .order-content .card-container{
+    margin: 10px;
+    min-width: 320px;
+    max-width: 320px;
+    float: left;
+    height: fit-content;
+    height: -moz-max-content;
+    background: #edf2fb;
+    box-shadow:  5px 5px 10px #dce1e9,
+                 -5px -5px 10px #feffff;
+}
+.pos .order-content li.card-container:first-child{
+    margin-left: 50px;
+}
+
+/* header */
+.pos .order-content .card-container .header{
+    /*border: 1px solid black;*/
+    width: 100%;
+    height: auto;
+    background: #ff7477;
+}
+.pos .order-content .card-container .header .header-container{
+    /*border: 1px solid;*/
+    overflow: auto;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.pos .order-content .card-container .header .image{
+    /*border: 1px solid black;*/
+    padding-top: 7px;
+    float: left;
+}
+.pos .order-content .card-container .header .top-line{
+    /*border: 1px solid black;*/
+    width: 87%;
+    float: right;
+    margin-bottom: 2px;
+}
+.pos .order-content .card-container .header .midel-line{
+    /*border: 1px solid black;*/
+    width: 87%;
+    float: right;
+}
+.pos .order-content .card-container .header .bottom-line{
+    /*border: 1px solid black;*/
+    float: left;
+    margin-left: 10px;
+    margin-top: 3px;
+    width: 80%;
+}
+.pos .order-content .card-container .header .order-icon{
+    height: 30px;
+    vertical-align:middle;
+    float: left;
+}
+.pos .order-content .card-container .header .table-name{
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+.pos .order-content .card-container .header .floor-name{
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    margin-left: 5px;
+}
+.pos .order-content .card-container .header .table-guest{
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+.pos .order-content .card-container .header .order-time{
+    float: right;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+.pos .order-content .card-container .header .serve-name{
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+/* body */
+.pos .order-content .card-container .body{
+    padding: 6px;
+    background: #edf2fb;
+}
+.pos .order-content .card-container .body .category{
+    width: auto;
+    height: 15px;
+    background: #e2e4f9;
+    padding: 2px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* footer */
+.pos .order-content .card-container .card-footer{
+    width: 100%;
+    height: 34px;
+    color: #555;
+}
+.pos .order-content .card-container .card-footer .order-ref{
+    float: right;
+    margin-right: 5px;
+    margin-top: 4px;
+}
+.pos .order-content .card-container .card-footer .done{
+    float: left;
+    font-size: 13px;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .order-content .card-container .card-footer .done:active{
+    border-radius: 5px;
+    background: linear-gradient(145deg, #d5dae2, #feffff);
+    box-shadow:  2px 2px 3px #e1e6ee,
+                 -2px -2px 3px #f9feff;
+}
+.pos .order-content .card-container .card-footer .print{
+    float: left;
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 10px;
+    line-height: 18px;
+    width: 50px;
+    padding: 4px;
+    color: #555;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .order-content .card-container .card-footer .print:active{
+    border-radius: 5px;
+    background: linear-gradient(145deg, #d5dae2, #feffff);
+    box-shadow:  2px 2px 3px #e1e6ee,
+                 -2px -2px 3px #f9feff;
+}
+
+/* Card Line */
+
+.pos .order-content .card-container .cardline{
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+    color: #201C1F;
+    margin-bottom: 5px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.pos .order-content .card-container .cardline:nth-child(odd){
+    border-radius: 1px;
+    background: #edf2fb;
+    box-shadow: inset 5px 5px 10px #e4e8f1,
+                inset -5px -5px 10px #f6fcff;
+}
+.pos .order-content .card-container .cardline:nth-child(even){
+    border-radius: 1px;
+    background: #edf2fb;
+    box-shadow: inset 5px 5px 10px #e4e8f1,
+                inset -5px -5px 10px #f6fcff;
+}
+.pos .order-content .card-container .cardline .task-button{
+    float: right;
+    color: #4CAF50;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .order-content .card-container .cardline .task-button:active{
+    border-radius: 5px;
+    background: linear-gradient(145deg, #d5dae2, #feffff);
+    box-shadow:  2px 2px 3px #e1e6ee,
+                 -2px -2px 3px #f9feff;
+}
+.pos .order-content .card-container .cardline .print{
+    float: right;
+    color: #777;
+    font-weight: bold;
+    margin-right: 8px;
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .order-content .card-container .cardline .print:active{
+    border-radius: 5px;
+    background: linear-gradient(145deg, #d5dae2, #feffff);
+    box-shadow:  2px 2px 3px #e1e6ee,
+                 -2px -2px 3px #f9feff;
+}
+.pos .order-content .card-container .cardline .qty{
+    padding:0;
+    display:inline-block;
+    width:12%;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 3px;
+}
+.pos .order-content .card-container .cardline .name{
+    padding:0;
+    display:inline-block;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+}
+
+/** Material card Lines **/
+
+.pos .order-content .card-container .materialcard{
+}
+
+.pos .order-content .card-container .materialcard .materialline{
+    font-size: 12px;
+    width: 100%;
+    text-align: left;
+    color: #6c757d;
+}
+.pos .order-content .card-container .materialcard .materialline:first-child{
+    margin-top: 6px;
+}
+.pos .order-content .card-container .materialcard .operation{
+    display: inline-block;
+    min-width: 16%;
+    max-width: 20%;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: right;
+    vertical-align: top;
+    margin-right: 8px;
+    margin-top: 1px;
+    font-size: 11px;
+}
+.pos .order-content .card-container .materialcard .material-name{
+    padding:0;
+    display:inline-block;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+}
+.pos .order-content .card-container .materialcard .material-qty{
+    padding:0;
+    display:inline-block;
+    min-width: 6%;
+    max-width: 15%;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 3px;
+}
+
+/** Combo card Lines **/
+
+.pos .order-content .card-container .combocard{
+    padding-left: 12%;
+}
+.pos .order-content .card-container .combocard .comboline{
+    font-size: 13px;
+    width: 100%;
+    text-align: left;
+    color: #565356;
+}
+.pos .order-content .card-container .combocard .combo-name{
+    padding:0;
+    display:inline-block;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+}
+.pos .order-content .card-container .combocard .combo-qty{
+    padding:0;
+    display:inline-block;
+    width:8%;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 3px;
+}
+.pos .order-content .card-container .combo-materialcard{
+    margin-left: 10%;
+}
+.pos .order-content .card-container .combo-materialcard .materialline{
+    font-size: 12px;
+    width: 100%;
+    text-align: left;
+    color: #6c757d;
+}
+.pos .order-content .card-container .combo-materialcard .operation{
+    display: inline-block;
+    min-width: 16%;
+    max-width: 20%;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: right;
+    vertical-align: top;
+    margin-right: 8px;
+    margin-top: 1px;
+    font-size: 11px;
+}
+.pos .order-content .card-container .combo-materialcard .material-name{
+    padding:0;
+    display:inline-block;
+    width:70%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+}
+.pos .order-content .card-container .combo-materialcard .material-qty{
+    padding:0;
+    display:inline-block;
+    min-width: 6%;
+    max-width: 15%;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 3px;
+}
+
+/** Grid Order View **/
+
+.pos .kitchen-screen .grid-order-content {
+    overflow-y: auto;
+    margin-bottom: 70px;
+    scroll-behavior: smooth;
+    margin-top: 25px;
+    margin-left: 4%;
+}
+
+.pos .grid-order-content .grid-card-container{
+    margin: 16px;
+    min-width: 140px;
+    max-width: 140px;
+    background-color: #edf2fb;
+    float: left;
+    box-shadow: 6px 6px 16px #a2c0e278;
+    height: fit-content;
+    cursor: pointer;
+    border-radius: 9px;
+    background: #edf2fb;
+    box-shadow: 5px 5px 10px #c7cbd3, -5px -5px 10px #ffffff;
+}
+
+/* header */
+.pos .grid-order-content .grid-card-container .header{
+    width: 100%;
+    height: 42px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    background: #ff7477;
+}
+.pos .grid-order-content .grid-card-container .header .image{
+    padding-top: 7px;
+    float: left;
+    width: 30%;
+    text-align: center;
+}
+.pos .grid-order-content .grid-card-container .header .order-icon{
+    height: 30px;
+    vertical-align:middle;
+}
+.pos .grid-order-content .grid-card-container .header .table-name{
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    float: left;
+    width: 60%;
+    text-align: left;
+    margin-top: 5px;
+}
+.pos .grid-order-content .grid-card-container .header .table-guest{
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    float: left;
+    width: 60%;
+    text-align: left;
+}
+
+/* footer */
+.pos .grid-order-content .grid-card-container .card-footer{
+    width: 100%;
+    height: 80px;
+    background: #edf2fb;
+    color: #555555;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+.pos .grid-order-content .grid-card-container .card-footer .order-ref{
+    font-size: 12px;
+    font-weight: bold;
+    color: #555555;
+    padding: 2px;
+    padding-top: 5px;
+}
+.pos .grid-order-content .grid-card-container .card-footer .item-count{
+    font-size: 12px;
+    font-weight: bold;
+    color: #555555;
+    padding: 2px;
+    padding-top: 5px;
+}
+.pos .grid-order-content .grid-card-container .card-footer .order-time{
+    font-size: 12px;
+    font-weight: bold;
+    color: #555555;
+    padding: 2px;
+}
+.pos .grid-order-content .grid-card-container .card-footer .serve-name{
+    font-size: 12px;
+    font-weight: bold;
+    color: #555555;
+    padding: 2px;
+}
+
+/** KitchenOrderCardPopup **/
+
+.pos .popup.popup-kitchen-order-card {
+    background: #edf2fb;
+}
+.pos .popup.popup-kitchen-order-card .header{
+    border-radius: 3px 3px 0px 0px;
+    border-bottom: solid 1px rgba(60,60,60,0.1);
+    height: 56px;
+}
+.pos .popup.popup-kitchen-order-card header .image{
+    margin-left: 10px;
+    padding-top: 7px;
+    float: left;
+}
+.pos .popup.popup-kitchen-order-card .header .top-line{
+    float: left;
+    width: 83%;
+    margin-left: 18px;
+    margin-top: 8px;
+    height: 16px;
+}
+.pos .popup.popup-kitchen-order-card .header .bottom-line{
+    float: left;
+    margin-left: 18px;
+    margin-top: 8px;
+    width: 83%;
+}
+.pos .popup.popup-kitchen-order-card .header .order-icon{
+    height: 42px;
+    vertical-align:middle;
+    float: left;
+}
+.pos .popup.popup-kitchen-order-card .header .table-name{
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+.pos .popup.popup-kitchen-order-card .header .table-guest{
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+.pos .popup.popup-kitchen-order-card .header .order-time{
+    float: right;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+.pos .popup.popup-kitchen-order-card .header .serve-name{
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+.pos .popup.popup-kitchen-order-card .lines-body{
+    background: #edf2fb;
+    max-height: 420px;
+    padding: 10px;
+}
+.pos .popup.popup-kitchen-order-card .lines-body .cardline{
+    padding: 10px;
+    padding-left: 22px;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+    border-radius: 1px;
+    background: #edf2fb;
+    box-shadow: inset 5px 5px 10px #e4e8f1,
+                inset -5px -5px 10px #f6fcff;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.pos .popup.popup-kitchen-order-card .materialcard .materialline{
+    font-size: 12px;
+    width: 100%;
+    text-align: left;
+    color: #6c757d;
+}
+.pos .popup.popup-kitchen-order-card .materialcard .materialline:first-child{
+    margin-top: 6px;
+}
+.pos .popup.popup-kitchen-order-card .materialcard .operation{
+    display: inline-block;
+    min-width: 16%;
+    max-width: 20%;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: right;
+    vertical-align: top;
+    margin-right: 8px;
+    margin-top: 1px;
+    font-size: 11px;
+}
+.pos .popup.popup-kitchen-order-card .materialcard .material-name{
+    padding:0;
+    display:inline-block;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+}
+.pos .popup.popup-kitchen-order-card .materialcard .material-qty{
+    padding:0;
+    display:inline-block;
+    min-width: 6%;
+    max-width: 15%;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 3px;
+}
+.pos .popup.popup-kitchen-order-card .combocard{
+    padding-left: 12%;
+}
+.pos .popup.popup-kitchen-order-card .combocard .comboline{
+    font-size: 13px;
+    width: 100%;
+    text-align: left;
+    color: #565356;
+}
+.pos .popup.popup-kitchen-order-card .combocard .combo-name{
+    padding:0;
+    display:inline-block;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+}
+.pos .popup.popup-kitchen-order-card .combocard .combo-qty{
+    padding:0;
+    display:inline-block;
+    width:8%;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 3px;
+}
+.pos .popup.popup-kitchen-order-card .combo-materialcard{
+    margin-left: 8%;
+}
+.pos .popup.popup-kitchen-order-card .combo-materialcard .materialline{
+    font-size: 12px;
+    width: 100%;
+    text-align: left;
+    color: #6c757d;
+}
+.pos .popup.popup-kitchen-order-card .combo-materialcard .operation{
+    display: inline-block;
+    min-width: 13%;
+    max-width: 17%;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: right;
+    vertical-align: top;
+    margin-right: 8px;
+    margin-top: 1px;
+    font-size: 11px;
+}
+.pos .popup.popup-kitchen-order-card .combo-materialcard .material-name{
+    padding:0;
+    display:inline-block;
+    width:70%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+}
+.pos .popup.popup-kitchen-order-card .combo-materialcard .material-qty{
+    padding:0;
+    display:inline-block;
+    min-width: 6%;
+    max-width: 15%;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 3px;
+}
+
+
+.pos .popup.popup-kitchen-order-card .lines-body .cardline .qty{
+    padding:0;
+    display:inline-block;
+    width:12%;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 3px;
+}
+.pos .popup.popup-kitchen-order-card .lines-body .cardline .name{
+    padding:0;
+    display:inline-block;
+    width:60%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    text-align: left;
+}
+.pos .popup.popup-kitchen-order-card footer.footer{
+    height: 48px;
+    border: none;
+    border-radius: 3px;
+    background: #edf2fb;
+}
+.pos .popup.popup-kitchen-order-card .footer .cancel{
+    background: #fff;
+    height: 30px;
+    line-height: 30px;
+    width: 90px;
+    margin-top: 8px;
+    color: #555555;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .popup.popup-kitchen-order-card .footer .deliver{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 90px;
+    margin-top: 8px;
+    margin-left: 10px;
+    color: #795548;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+.pos .popup.popup-kitchen-order-card .footer .print{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 90px;
+    margin-top: 8px;
+    margin-left: 15px;
+    color: #555555;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #feffff, #d5dae2);
+    box-shadow: 2px 2px 5px #c0c4cb, -2px -2px 5px #ffffff;
+}
+
+/* kitchen receipt */
+.pos-receipt.kitchen .extra-info{
+    padding-bottom: 2em;
+}
+.pos-receipt.kitchen .cardline{
+    padding-bottom: 1em;
+    font-size: 125%
+
+}
+.pos-receipt.kitchen .cardline .materialline{
+    padding-left: 1em;
+    font-size: 75%
+}
+.pos-receipt.kitchen .cardline .comboline{
+    padding-left: 1em;
+    font-size: 85%
+}
+.pos-receipt.kitchen .cardline .qty{
+    padding-right: 2em;
+}

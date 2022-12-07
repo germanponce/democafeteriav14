@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboProductsWidget" owl="1">
+      <div class="products-widget">
+            <t t-if="categories">
+                <ComboProductsWidgetControlPanel categories="categories" selected_id="state.selectedComboCategoryId"
+                />
+            </t>
+          <ComboProductList products="productsToDisplay" quantityLine="state.quantityLine"
+                            selected_id="state.selectedComboCategoryId"/>
+        </div>
+    </t>
+
+</templates>

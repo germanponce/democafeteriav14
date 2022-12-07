@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="GiftVoucherHistoryLine" owl="1">
+        <div class="order-row pointer" t-attf-class="client-line {{highlight}}"
+             t-att-data-id="props.gift_voucher_history">
+            <div class="col start">
+                <t t-esc="props.gift_voucher_history"/>
+            </div>
+        </div>
+    </t>
+</templates>

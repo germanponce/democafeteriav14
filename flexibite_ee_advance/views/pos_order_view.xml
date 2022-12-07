@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="order_inherited_form_view" model="ir.ui.view">
+            <field name="name">pos.order.inherited.view</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <field name="pos_reference" position="after">
+                    <field name="increment_number" readonly="1"/>
+                </field>
+                <field name="partner_id" position="after">
+                    <field name="order_type" readonly="1"/>
+                    <field name="delivery_service_id" attrs="{'invisible' : [('order_type', '!=', 'Delivery')]}"
+                           readonly="1"/>
+                </field>
+                <xpath expr="//field[@name='lines']/tree/field[@name='discount']" position="after">
+                    <field name="start_time" widget="float_time"/>
+                    <field name="end_time" widget="float_time"/>
+                    <field name="date_time_duration" widget="float_time" readonly="1"/>
+                </xpath>
+                <field name="company_id" position="after">
+                    <field name="cancel_order_reason" readonly="1"/>
+                </field>
+                <xpath expr="//page[@name='products']" position='after'>
+                    <page string='Product Cancel Reason' name="product_cancel_reason">
+                        <field name="line_cancel_reason_ids">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="reason"/>
+                                <field name="description"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

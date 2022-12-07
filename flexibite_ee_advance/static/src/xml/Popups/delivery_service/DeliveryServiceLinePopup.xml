@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="DeliveryServiceLinePopup" owl="1">
+        <div t-attf-class="service-box {{highlight}}" t-att-data-id="props.service.id"
+             t-on-click="trigger('click-service', {service: props.service})">
+            <div class="service-box_img">
+                <img t-att-src="imageUrl" t-att-alt="props.service.name" style="width: 100%; height: 100%;"/>
+            </div>
+            <div class="service-box_name">
+                <t t-esc="props.service.name"/>
+            </div>
+        </div>
+    </t>
+
+</templates>

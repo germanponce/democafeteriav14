@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="FilterSwitch" owl="1">
+        <span class="filter-switch">
+            <div t-if="showDineIn" class="type-switch" style="color: #ff7477"
+                 t-att-class="dineInClass" t-on-click="clickDineIn">
+                <img class="switch-icon" src="/flexibite_ee_advance/static/src/img/table(1).png"/>
+            </div>
+            <div t-if="showTakeAway" class="type-switch" style="color: #8bc34a"
+                 t-att-class="takeAwayClass" t-on-click="clickTakeAway">
+                <img class="switch-icon" src="/flexibite_ee_advance/static/src/img/take-away(2).png"/>
+            </div>
+            <div t-if="showDelivery" class="type-switch" style="color: #00bcd4"
+                 t-att-class="deliveryClass" t-on-click="clickDelivery">
+                <img class="switch-icon" src="/flexibite_ee_advance/static/src/img/delivery-man(1).png"/>
+            </div>
+        </span>
+    </t>
+</templates>

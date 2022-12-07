@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboMaterialSummary" owl="1">
+        <div class="summary clearfix">
+            <div class="line">
+                <div class="entry addons">
+                    <span class="badge">Addons: </span>
+                    <span class="value">
+                        <t t-esc="props.addons"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

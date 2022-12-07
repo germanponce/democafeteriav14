@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="OrderPrint" owl="1">
+        <div class="pos-receipt kitchen">
+            <h2 t-esc="order.order_name" class="pos-receipt-center-align"/>
+            <div class="extra-info" t-if="order.order_type == 'Dine In'">
+                <span>
+                    Table: <span t-if="order.table" style="font-weight: bold;" t-esc="order.table"/>
+                </span>
+                <span class="pos-receipt-right-align">
+                    Floor: <span t-if="order.floor" style="font-weight: bold;" t-esc="order.floor"/>
+                </span>
+            </div>
+            <div class="extra-info" t-if="order.order_type == 'Take Away'">
+                <span style="font-weight: bold; font-size: 120% ">
+                    Take Away
+                </span>
+            </div>
+            <div class="extra-info" t-if="order.order_type == 'Delivery'">
+                <span style="font-weight: bold; font-size: 120% ">
+                    Delivery
+                </span>
+            </div>
+            <div t-foreach="order.order_lines" t-as="line" class="cardline" style="font-size: 125%">
+                <span class="qty">
+                    <t t-esc="line.qty"/>
+                </span>
+                <span class="name">
+                    <t t-esc="line.name"/>
+                </span>
+                <div t-foreach="line.materiallines" t-as="materialline" class="materialline">
+                    <t t-if="materialline.replaced_product_name and materialline.bom">
+                        <div>
+                            <span style="font-weight: bold;">REPLACE: </span>
+                            <span class="qty">
+                                <t t-esc="materialline.qty"/>
+                            </span>
+                            <span class="name">
+                                <t t-esc="materialline.name"/>
+                            </span>
+                            <span> with <t t-esc="materialline.replaced_product_name"/></span>
+                       </div>
+                    </t>
+                    <t t-if="materialline.max == materialline.qty and !materialline.replaced_product_name
+                        and materialline.bom">
+                        <div>
+                            <span style="font-weight: bold;">ADD: </span>
+                            <span class="qty">
+                                <t t-esc="materialline.qty"/>
+                            </span>
+                            <span class="name">
+                                <t t-esc="materialline.name"/>
+                            </span>
+                       </div>
+                    </t>
+                    <t t-if="!materialline.bom">
+                        <div>
+                            <span style="font-weight: bold;">ADD: </span>
+                            <span class="qty">
+                                <t t-esc="materialline.qty"/>
+                            </span>
+                            <span class="name">
+                                <t t-esc="materialline.name"/>
+                            </span>
+                       </div>
+                   </t>
+                    <t t-if="materialline.max != materialline.qty and materialline.bom">
+                        <div>
+                            <span style="font-weight: bold;">CHANGE: </span>
+                            <span class="qty">
+                                <t t-esc="materialline.qty"/>
+                            </span>
+                            <span class="name">
+                                <t t-esc="materialline.name"/>
+                            </span>
+                       </div>
+                    </t>
+                </div>
+                <div t-foreach="line.combolines" t-as="comboline" class="comboline">
+                    <span class="qty">
+                        <t t-esc="comboline.qty"/>
+                    </span>
+                    <span class="name">
+                        <t t-esc="comboline.name"/>
+                    </span>
+                    <div t-foreach="comboline.materiallines" t-as="materialline" class="materialline">
+                       <t t-if="materialline.replaced_product_name and materialline.bom">
+                            <div>
+                                <span style="font-weight: bold;">REPLACE: </span>
+                                <span class="qty">
+                                    <t t-esc="materialline.qty"/>
+                                </span>
+                                <span class="name">
+                                    <t t-esc="materialline.name"/>
+                                </span>
+                                <span> with <t t-esc="materialline.replaced_product_name"/></span>
+                           </div>
+                       </t>
+                        <t t-if="!materialline.bom">
+                            <div>
+                                <span style="font-weight: bold;">ADD: </span>
+                                <span class="qty">
+                                    <t t-esc="materialline.qty"/>
+                                </span>
+                                <span class="name">
+                                    <t t-esc="materialline.name"/>
+                                </span>
+                           </div>
+                       </t>
+                        <t t-if="materialline.max != materialline.qty and materialline.bom">
+                            <div>
+                                <span style="font-weight: bold;">CHANGE: </span>
+                                <span class="qty">
+                                    <t t-esc="materialline.qty"/>
+                                </span>
+                                <span class="name">
+                                    <t t-esc="materialline.name"/>
+                                </span>
+                           </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

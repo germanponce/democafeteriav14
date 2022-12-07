@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CombopadWidget" owl="1">
+        <div class="combopad">
+            <button class="button add" t-on-click="trigger('click-add')">
+                <div class="add-circle">
+                    <i class="fa fa-chevron-left" role="img" aria-label="Add" title="Add"/>
+                </div>
+                Confirm
+            </button>
+            <t t-if="props.buttonEnable.minus">
+                <button class="button minus" t-on-click="trigger('click-minus')">
+                    <div class='minus-circle'>
+                        <i class='fa fa-minus' role="img" aria-label="Minus" title="Minus"/>
+                    </div>
+                </button>
+            </t>
+            <t t-else="">
+                <button class="button minus" disabled="disabled">
+                    <div class='minus-circle'>
+                        <i class='fa fa-minus' role="img" aria-label="Minus" title="Minus"/>
+                    </div>
+                </button>
+            </t>
+            <t t-if="props.buttonEnable.plus">
+                <button class="button plus" t-on-click="trigger('click-plus')">
+                    <div class='plus-circle'>
+                        <i class='fa fa-plus' role="img" aria-label="Plus" title="Plus"/>
+                    </div>
+                </button>
+            </t>
+            <t t-else="">
+                <button class="button plus" disabled="disabled">
+                    <div class='plus-circle' disabled="disabled">
+                        <i class='fa fa-plus' role="img" aria-label="Plus" title="Plus" disabled="disabled"/>
+                    </div>
+                </button>
+            </t>
+            <t t-if="props.editFlag == false">
+                <button class="button save" disabled="disabled">
+                    <div class='save-circle'>
+                    </div>
+                    Saved
+                </button>
+            </t>
+            <t t-if="props.editFlag == true">
+                <button class="button highlight save" t-on-click="trigger('click-save')">
+                    <div class='save-circle'>
+                    </div>
+                    Save
+                </button>
+            </t>
+            <t t-if="props.editFlag == false">
+                <button class="button discard" disabled="disabled">
+                    <div class='discard-circle'>
+                    </div>
+                    Discard
+                </button>
+            </t>
+            <t t-else="">
+                <button class="button discard" t-on-click="trigger('click-discard')">
+                    <div class='discard-circle'>
+                    </div>
+                    Discard
+                </button>
+            </t>
+
+            <button class="button back" t-on-click="trigger('click-back')">
+                <div class='back-circle'>
+                </div>
+                Back
+            </button>
+
+            <button class="button reset" t-on-click="trigger('click-reset')">
+                <div class='reset-circle'>
+                </div>
+                Reset
+            </button>
+            <t t-if="props.buttonEnable.split">
+                <button class="button split" t-on-click="trigger('click-split')">
+                    <div class='split-circle'>
+                    </div>
+                    Split
+                </button>
+            </t>
+            <t t-else="">
+                <button class="button split" disabled="disabled">
+                    <div class='split-circle'>
+                    </div>
+                    Split
+                </button>
+            </t>
+            <t t-if="props.buttonEnable.merge">
+                <button class="button merge" t-on-click="trigger('click-merge')">
+                    <div class='merge-circle'>
+                    </div>
+                    Merge
+                </button>
+            </t>
+            <t t-else="">
+                <button class="button merge" disabled="disabled">
+                    <div class='merge-circle'>
+                    </div>
+                    Merge
+                </button>
+            </t>
+
+            <t t-if="props.buttonEnable.remove">
+                <button class="button delete" t-on-click="trigger('click-delete')">
+                    <div class='delete-circle'>
+                        <i class="fa fa-trash" aria-hidden="true"/>
+                    </div>
+                </button>
+            </t>
+            <t t-else="">
+                <button class="button delete" disabled="disabled">
+                    <div class='delete-circle' disabled="disabled">
+                        <i class="fa fa-trash" aria-hidden="true" disabled="disabled"/>
+                    </div>
+                </button>
+            </t>
+        </div>
+    </t>
+
+</templates>

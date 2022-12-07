@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboReplaceProductWidget" owl="1">
+
+        <div class="products-widget">
+            <div class="rightpane-header green-border-bottom">
+                <span class="replace-tag">
+                    Replace with
+                </span>
+            </div>
+            <div class="product-list-container">
+                <div t-if="productsToDisplay.length != 0" class="product-list">
+                    <t t-foreach="productsToDisplay" t-as="product" t-key="product.id">
+                        <ReplaceProductItemS product="product"/>
+                    </t>
+                </div>
+                <div t-else="" class="product-list-empty">
+                    <div class="product-list-empty">
+                        <p>There are no products in this category.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

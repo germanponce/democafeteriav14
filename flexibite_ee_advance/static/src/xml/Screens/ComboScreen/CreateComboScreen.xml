@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CreateComboScreen" owl="1">
+        <div class="combo-screen screen" t-att-class="{ oe_hidden: !props.isShown }">
+            <div class="screen-full-width">
+                <div class="leftpane" t-if="!env.isMobile || mobile_pane === 'left'">
+                    <div class="combo-bar-container green-border-bottom">
+                        <span class='custom-name'><t t-esc="props.product.display_name"/></span>
+                    </div>
+                    <ComboWidget editFlag="state.editFlag" onReplace="state.onReplace" t-ref="top"/>
+                    <div class="pads">
+                        <div class="subpads">
+                            <CombopadWidget editFlag="state.editFlag" buttonEnable="state.buttonEnable"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpane" t-if="!env.isMobile || mobile_pane === 'right'">
+                    <t t-if="state.onReplace">
+                        <ProductsWidget/>
+                    </t>
+                    <t t-else="">
+                        <ComboProductsWidget product="props.product" tempMode="state.tempMode" t-ref="productWidget"/>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

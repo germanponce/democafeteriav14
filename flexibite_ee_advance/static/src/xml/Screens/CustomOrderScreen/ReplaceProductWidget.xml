@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ReplaceProductWidget" owl="1">
+
+        <div class="products-widget">
+            <div class="rightpane-header green-border-bottom">
+                <span t-if="props.mode == 'product'" class="replace-tag">
+                    Replace with
+                </span>
+                <t t-if="props.mode == 'category' and props.categories.length > 0">
+                    <t t-foreach="props.categories" t-as="category" t-key="category.id">
+                        <BomCategoryButton category="category" selected_id="props.selected_id"/>
+                    </t>
+                </t>
+            </div>
+            <div class="product-list-container">
+                <t t-set="products" t-value="props.mode == 'product' ? productsToDisplay: categoryProducts"/>
+                <div t-if="products.length != 0" class="product-list">
+                    <t t-foreach="products" t-as="product" t-key="product.id">
+                        <ReplaceProductItemS product="product"/>
+                    </t>
+                </div>
+                <div t-else="" class="product-list-empty">
+                    <div class="product-list-empty">
+                        <p>There are no products in this category.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

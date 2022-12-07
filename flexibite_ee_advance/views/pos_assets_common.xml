@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="restaurant_assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/flexibite_ee_advance/static/src/css/pos.css"/>
+            <link rel="stylesheet" type="text/css" href="/flexibite_ee_advance/static/src/css/style.css"/>
+            <link rel="stylesheet" type="text/css" href="/flexibite_ee_advance/static/src/css/lock_screen.css"/>
+            <link rel="stylesheet" type="text/css" href="/flexibite_ee_advance/static/src/css/screen_style.css"/>
+            <link rel="stylesheet" type="text/css"
+                  href="/flexibite_ee_advance/static/src/css/customer_screen.css"/>
+            <script src="/web/static/lib/Chart/Chart.js"/>
+
+            <script type="text/javascript" src="/flexibite_ee_advance/static/src/js/model.js"/>
+            <script type="text/javascript" src="/flexibite_ee_advance/static/src/js/db.js"/>
+            <script type="text/javascript" src="/flexibite_ee_advance/static/src/js/Chrome.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/ChromeWidgets/KitchenScreenButton.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/ChromeWidgets/CustomerScreenButton.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/ChromeWidgets/LockPosScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/ChromeWidgets/UnlockPosScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/ChromeWidgets/OpenDetailButton.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ProductScreen/CustomControlButtons/MiddelCustomControlButton.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ProductScreen/ProductScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ProductScreen/Orderline.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ProductScreen/Orderwidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ProductScreen/ActionpadWidget.js"/>
+
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/ProductConfiguratorPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/MaterialReplacePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/ComboReplacePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/MaterialInfoPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/SplitCombolinePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/MergeCombolinePopup.js"/>
+            <script type="text/javascript" src="/flexibite_ee_advance/static/src/js/Popups/ComboInfoPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/KitchenOrderCardPopup.js"/>
+
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/CustomOrderScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/BomCategoryButton.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/ReplaceBOMWidgetControlPanel.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/MaterialWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/Materialline.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/MaterialSummery.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/MaterialpadWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/ReplaceProductWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CustomiseOrderScreen/ReplaceProductItemS.js"/>
+
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/CreateComboScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/ComboWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/Comboline.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/ComboSummery.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/CombopadWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/ComboProductsWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/ComboProductsWidgetControlPanel.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/ComboCategoryButton.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/ComboProductList.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboScreen/ComboProductItem.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboCustomiseProductScreen/ComboCustomiseProductScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboCustomiseProductScreen/ComboMaterialline.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboCustomiseProductScreen/ComboMaterialpadWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboCustomiseProductScreen/ComboMaterialSummery.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboCustomiseProductScreen/ComboMaterialWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboCustomiseProductScreen/ComboReplaceProductWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ComboCustomiseProductScreen/ComboReplaceProductItemS.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/KitchenScreen/KitchenScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/KitchenScreen/OrderCard.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/KitchenScreen/GridOrderCard.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/KitchenScreen/OrderCardLine.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/KitchenScreen/MaterialCardLine.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/KitchenScreen/FilterSwitch.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/KitchenScreen/StatisticBox.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/TicketScreen/TicketScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplay.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/PaymentScreen/PaymentScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ReceiptScreen/ReceiptScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/RightWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/LeftWidget.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/CustomerOrderline.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/VideoSlider.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/Ratings.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/PaymentDetail.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/PaymentLines.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/Slider/Slider.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/Slider/SliderContent.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/Slider/Slide.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/CustomerDisplayWidgets/Slider/Arrow.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/CustomerFeedbackPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/CustomerCreatePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/Wallet/PaymentWalletPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/Wallet/WalletPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/GiftCard/giftCardCreatePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/GiftCard/giftCardCreatePopupConform.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/GiftCard/giftCardEditExpirePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/GiftCard/giftCardExchangePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/GiftCard/giftCardRechargePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/GiftCard/giftCardRedeemPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/GiftCardScreen/giftCardCreateScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/GiftCardScreen/GiftCardLine.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/GiftCardScreen/GiftCardScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/GiftVoucher/giftVoucherRedeemPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/GiftVoucherScreen/GiftVoucherHistoryLine.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/GiftVoucherScreen/GiftVoucherLine.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/GiftVoucherScreen/GiftVoucherScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/MoneyInOut/MoneyInOutPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ReceiptScreen/MoneyInOutReceipt.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/LoginScreen/LoginScreen.js"/>
+            <script type="text/javascript" src="/flexibite_ee_advance/static/src/js/useSelectEmployee.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ProductScreen/VerticalProductCategory.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CashControlScreen/CashControlScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CashControlScreen/CashControlScreenInput.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CashControlScreen/StaticInputLines.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CloseCashControlScreen/CloseCashControlScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/CloseCashControlScreen/CloseCashControlScreenInput.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/CloseSession/CloseSessionPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/OrderReturnScreen/OrderReturnProductList.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/OrderReturnScreen/OrderReturnScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/ChromeWidgets/BiteDetailSidebar.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ProductScreen/ProductDetailScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/ProductDetail/PurchaseOrderCreate.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/Reports/AuditReportPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/Reports/OrderSummaryPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/Reports/PaymentSummaryPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/Reports/ProductSummaryPopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ReceiptScreen/OrderSummaryReceipt.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ReceiptScreen/PaymentSummaryReceipt.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ReceiptScreen/ProductSummaryReceipt.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ProductScreen/ControlButtons/SendToKitchenButton.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/ReceiptScreen/TokenReceipt.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/MaterialMonitorScreen/MateriaItem.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/MaterialMonitorScreen/MaterialList.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/MaterialMonitorScreen/MaterialMonitorControlPanel.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/MaterialMonitorScreen/MaterialMonitordetail.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/MaterialMonitorScreen/MaterialMonitorScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/delivery_service/DeliveryServicePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Popups/delivery_service/DeliveryServiceLinePopup.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/PaymentScreen/PaymentScreendisabledNumpad.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/SyncPosOrderScreen/SyncOrderDetails.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/SyncPosOrderScreen/SyncOrderlineDetails.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/Screens/SyncPosOrderScreen/SyncOrderScreen.js"/>
+            <script type="text/javascript"
+                    src="/flexibite_ee_advance/static/src/js/ChromeWidgets/OrderSyncScreenButton.js"/>
+        </xpath>
+    </template>
+
+    <template id="flexibite_ee_advance.index" name="POS Index">&lt;!DOCTYPE html&gt;
+        <html>
+            <head>
+                <title>Customer Display</title>
+
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+                <meta http-equiv="content-type" content="text/html, charset=utf-8"/>
+
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+                <meta name="apple-mobile-web-app-capable" content="yes"/>
+                <meta name="mobile-web-app-capable" content="yes"/>
+
+                <link rel="shortcut icon" sizes="196x196" href="/point_of_sale/static/src/img/touch-icon-196.png"/>
+                <link rel="shortcut icon" sizes="128x128" href="/point_of_sale/static/src/img/touch-icon-128.png"/>
+                <link rel="apple-touch-icon" href="/point_of_sale/static/src/img/touch-icon-iphone.png"/>
+                <link rel="apple-touch-icon" sizes="76x76" href="/point_of_sale/static/src/img/touch-icon-ipad.png"/>
+                <link rel="apple-touch-icon" sizes="120x120"
+                      href="/point_of_sale/static/src/img/touch-icon-iphone-retina.png"/>
+                <link rel="apple-touch-icon" sizes="152x152"
+                      href="/point_of_sale/static/src/img/touch-icon-ipad-retina.png"/>
+
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css"/>
+
+                <style>body { background: #222; }</style>
+
+                <link rel="shortcut icon" href="/web/static/src/img/favicon.ico" type="image/x-icon"/>
+
+                <script type="text/javascript">
+                    var odoo =<t t-raw="json.dumps({
+                    'csrf_token': request.csrf_token(None),
+                    'session_info': session_info,
+                    'login_number': login_number,
+                    'debug': debug,
+                    'config_id': config_id,
+                })"/>;
+                    document.cookie = "SameSite=None; Secure";
+                </script>
+                <t t-call="point_of_sale.assets_common"/>
+                <t t-call="web.conditional_assets_tests"/>
+                <script type="text/javascript" src="/flexibite_ee_advance/static/src/js/main.js"/>
+            </head>
+            <body>
+                <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.min.js"/>
+                <script type="text/javascript" src="/flexibite_ee_advance/static/src/js/VirtualKeyboard.js"/>
+            </body>
+        </html>
+    </template>
+</odoo>

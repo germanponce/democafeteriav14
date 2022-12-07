@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboProductsWidgetControlPanel" owl="1">
+        <div class="combo-products-widget-control">
+            <div class="rightpane-header green-border-bottom">
+                <!-- categories -->
+                <t t-if="props.categories.length > 0">
+                    <t t-foreach="props.categories" t-as="category" t-key="category.id">
+                        <ComboCategoryButton category="category" selected_id="props.selected_id"
+                        />
+                    </t>
+                </t>
+            </div>
+        </div>
+    </t>
+
+</templates>

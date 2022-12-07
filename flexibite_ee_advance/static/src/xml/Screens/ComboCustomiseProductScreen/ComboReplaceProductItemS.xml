@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboReplaceProductItemS" owl="1">
+        <article class="product" tabindex="0"
+                 t-on-click="productClicked"
+                 t-att-data-product-id="props.product.id"
+                 t-attf-aria-labelledby="article_product_{{props.product.id}}">
+            <div class="product-img">
+                <img t-att-src="imageUrl" t-att-alt="props.product.display_name"/>
+                <t t-if="hasVariant">
+                    <span class="price-tag">
+                        V
+                    </span>
+                </t>
+            </div>
+            <div class="product-name" t-attf-id="article_product_{{props.product.id}}">
+                <t t-esc="props.product.display_name"/>
+            </div>
+        </article>
+    </t>
+
+</templates>

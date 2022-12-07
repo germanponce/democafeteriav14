@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="MaterialInfoPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <Draggable>
+                <div class="popup popup-material-info">
+                    <header class="title drag-handle">
+                        Material Info<br/>
+                        <span class="name">
+                            <t t-esc="props.title"/>
+                        </span>
+                    </header>
+                    <div class="info scrollable-y">
+                        <ul>
+                            <t t-foreach="props.list" t-as="item" t-key="item.id">
+                                <li class="info-item">
+                                    <em>
+                                        <t t-esc="item.get_quantity_str()"/>
+                                    </em>
+                                    -
+                                    <t t-if="item.is_replaced == true">
+                                        <span class="product-name">
+                                            <span style="text-decoration: line-through;"><t t-esc="item.get_product().display_name"/></span>
+                                            <span> </span>
+                                            <span style="color:#673ab7"><t t-esc="item.get_full_product_name()"/></span>
+                                        </span>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-if="item.get_quantity() == 0">
+                                            <span class="product-name">
+                                                <span style="text-decoration: line-through;"><t t-esc="item.get_product().display_name"/></span>
+                                            </span>
+                                        </t>
+                                        <t t-else="">
+                                            <span class="product-name">
+                                                <t t-esc="item.get_full_product_name()"/>
+                                            </span>
+                                        </t>
+                                    </t>
+                                    <span t-if="item.price != 0" class="price_extra">
+                                        + <t t-esc="env.pos.format_currency(item.get_display_price())"/>
+                                    </span>
+                                </li>
+                            </t>
+                        </ul>
+                    </div>
+                    <footer class="footer">
+                        <div class="button cancel" t-on-click="cancel">
+                            Close
+                        </div>
+                    </footer>
+                </div>
+            </Draggable>
+        </div>
+    </t>
+
+</templates>

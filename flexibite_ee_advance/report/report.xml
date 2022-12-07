@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pos_z_report" model="ir.actions.report">
+            <field name="name">Z Report</field>
+            <field name="model">pos.session</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">flexibite_ee_advance.pos_z_report_template</field>
+            <field name="print_report_name">'Z Report'</field>
+        </record>
+
+        <record id="report_pos_inventory_session_thermal_front" model="ir.actions.report">
+            <field name="name">Z Report(Thermal)</field>
+            <field name="model">pos.session</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">flexibite_ee_advance.pos_z_thermal_report_template</field>
+            <field name="print_report_name">'POS Z Report(Thermal)'</field>
+        </record>
+
+        <record id="paperformat_session_receipt_pdf" model="report.paperformat">
+            <field name="name">Session Receipt PDF</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">290</field>
+            <field name="page_width">80</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+            <field name="report_ids" eval="[(6,0,[ref('flexibite_ee_advance.pos_z_report')])]"/>
+        </record>
+
+        <record id="report_pos_inventory_session_pdf_front" model="ir.actions.report">
+            <field name="name">Inventory Report(pdf)</field>
+            <field name="model">pos.session</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">flexibite_ee_advance.front_inventory_session_pdf_report_template</field>
+            <field name="report_file">flexibite_ee_advance.front_inventory_session_pdf_report_template</field>
+            <field name="print_report_name">'Inventory Report(pdf)'</field>
+            <field name="paperformat_id" ref="flexibite_ee_advance.paperformat_session_receipt_pdf"/>
+        </record>
+
+        <record id="report_pos_inventory_location_pdf_front" model="ir.actions.report">
+            <field name="name">Inventory Report(pdf)</field>
+            <field name="model">stock.location</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">flexibite_ee_advance.front_inventory_location_pdf_report_template</field>
+            <field name="report_file">flexibite_ee_advance.front_inventory_location_pdf_report_template</field>
+            <field name="print_report_name">'Inventory Report(pdf)'</field>
+            <field name="paperformat_id" ref="flexibite_ee_advance.paperformat_session_receipt_pdf"/>
+        </record>
+
+    </data>
+</odoo>

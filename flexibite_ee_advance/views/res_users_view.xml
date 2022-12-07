@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="res_users_form_view_ace_inh" model="ir.ui.view">
+            <field name="name">res.users.form.view</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[2]" position='after'>
+                    <page string='Point of Sale'>
+                        <group>
+                            <group>
+                                <field name="pin"/>
+                            </group>
+                            <group>
+                                <field name="display_amount_during_close_session"/>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group>
+                                <field name="kitchen_screen_user"/>
+                                <field name="pos_category_ids" widget="many2many_tags"
+                                       attrs="{'invisible' : ['|',('kitchen_screen_user', '=', False),
+                                       ('kitchen_screen_user', '!=', 'cook')],
+                                       'required' : [('kitchen_screen_user', '!=', False),('kitchen_screen_user','==','cook')]}"/>
+                                <field name="default_pos" attrs="{'invisible' : [('kitchen_screen_user', 'not in', ['cook', 'waiter'])],
+                                                                 'required' : [('kitchen_screen_user', 'in', ['cook', 'waiter'])]}"/>
+                                <field name="is_delete_order_line" attrs="{'invisible' : ['|',('kitchen_screen_user', '=', False),
+                                   ('kitchen_screen_user', '!=', 'manager')],                                   'required' : [('kitchen_screen_user', '!=', False),('kitchen_screen_user','==','manager')]}"/>
+
+                                <field name="delete_order_line_reason"
+                                       attrs="{'invisible' : [('is_delete_order_line', '=', False)]}"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

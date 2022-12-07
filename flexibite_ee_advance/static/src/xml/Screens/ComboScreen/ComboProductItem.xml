@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboProductItem" owl="1">
+        <article class="product" tabindex="0"
+                 t-on-click="productClicked"
+                 t-att-data-product-id="props.product.id"
+                 t-attf-aria-labelledby="article_product_{{props.product.id}}">
+            <div class="product-img">
+                <t t-if="quantity != 0">
+                    <span class="clear-tag" t-on-click.stop="clearClicked">
+                        <i class="fa fa-trash" aria-hidden="true"/>
+                    </span>
+                </t>
+
+                <img t-att-src="imageUrl" t-att-alt="props.product.display_name"/>
+                <span class="price-tag">
+                    <t t-esc="quantity"/>
+                </span>
+            </div>
+            <div class="product-name" t-attf-id="article_product_{{props.product.id}}">
+                <t t-esc="props.product.display_name"/>
+            </div>
+        </article>
+    </t>
+
+</templates>

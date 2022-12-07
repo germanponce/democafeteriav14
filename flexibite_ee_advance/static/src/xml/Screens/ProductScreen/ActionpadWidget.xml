@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div//button[hasclass('set-customer')]" position="after">
+            <ul t-if="env.pos.config.order_type_ids.length != 0" class="order-type">
+                <t t-foreach="env.pos.config.order_type_ids" t-as="order_type_id" t-key="order_type_id">
+                    <li class="type-button"
+                        t-att-class="{'selected-mode': state.orderTypeMode === getTypeName(order_type_id)}"
+                        t-on-click="changeMode(order_type_id)">
+                        <t t-esc="getTypeName(order_type_id)"/>
+                    </li>
+                </t>
+            </ul>
+        </xpath>
+        <xpath expr="//div//button[hasclass('pay')]" position="replace">
+            <t t-if="env.pos.config.order_type_ids.length != 0">
+                <button class="button pay" t-on-click="trigger('click-pay')" style="height: 124px;">
+                    <div class="pay-circle">
+                        <i class="fa fa-chevron-right" role="img" aria-label="Pay" title="Pay"/>
+                    </div>
+                    Payment
+                </button>
+            </t>
+            <t t-else="">
+                <button class="button pay" t-on-click="trigger('click-pay')">
+                    <div class="pay-circle">
+                        <i class="fa fa-chevron-right" role="img" aria-label="Pay" title="Pay"/>
+                    </div>
+                    Payment
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>
+

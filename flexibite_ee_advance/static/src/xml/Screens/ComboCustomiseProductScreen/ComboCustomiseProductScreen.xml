@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboCustomiseProductScreen" owl="1">
+        <div class="custom-screen screen" t-att-class="{ oe_hidden: !props.isShown }">
+            <div class="screen-full-width">
+                <div class="leftpane" t-if="!env.isMobile || mobile_pane === 'left'">
+                    <div class="material-bar-container green-border-bottom">
+                        <span class='custom-name'><t t-esc="props.full_name"/></span>
+                    </div>
+                    <ComboMaterialWidget editFlag="state.editFlag" replaceMode="state.replaceMode"/>
+                    <div class="pads">
+                        <div class="subpads">
+                            <ComboMaterialpadWidget editFlag="state.editFlag" buttonEnable="state.buttonEnable"/>
+                        </div>
+                    </div>
+                    <t t-if="env.isMobile">
+                        <MobileOrderWidget pane="mobile_pane" t-on-switchpane="switchPane"/>
+                    </t>
+                </div>
+                <div class="rightpane" t-if="!env.isMobile || mobile_pane === 'right'">
+                    <t t-if="state.replaceMode">
+                        <ComboReplaceProductWidget/>
+                    </t>
+                    <t t-else="">
+                        <ProductsWidget/>
+                        <t t-if="env.isMobile">
+                            <MobileOrderWidget pane="mobile_pane" t-on-switchpane="switchPane"/>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

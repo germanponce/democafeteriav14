@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ComboSummary" owl="1">
+        <div class="summary clearfix">
+            <div class="line">
+                <div class="entry extra">
+                    <span class="badge">Extra: </span>
+                    <span class="value">
+                        <t t-esc="props.extra"/>
+                    </span>
+                </div>
+                <div class="entry price">
+                    <span class="badge">Price: </span>
+                    <span class="value">
+                        <t t-esc="props.price"/>
+                    </span>
+                </div>
+                <div class="entry total">
+                    <span class="badge">Total: </span>
+                    <span class="value">
+                        <t t-esc="props.total"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

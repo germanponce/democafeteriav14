@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KitchenScreenButton" owl="1">
+        <div class="header-button kitchen_screen_button" t-on-click="onClick">
+            <t t-if="props.isKitchenScreen">
+                <img class="kitchen-button" src="/flexibite_ee_advance/static/src/img/back.png" alt="screen"/>
+            </t>
+            <t t-else="">
+                <img class="kitchen-button" src="/flexibite_ee_advance/static/src/img/chef.png" alt="screen"/>
+            </t>
+        </div>
+    </t>
+
+</templates>

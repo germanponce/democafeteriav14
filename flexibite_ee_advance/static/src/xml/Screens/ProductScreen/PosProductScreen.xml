@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ProductScreenInh" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('leftpane')]" position="after">
+            <div class="middel" t-if="!env.isMobile">
+                <MiddelCustomControlButton/>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('rightpane')]" position="replace">
+            <div class="rightpane" t-if="!env.isMobile || mobile_pane === 'right'">
+                <ProductsWidget t-if="!state.cashControl" isPackaging="state.isPackaging"/>
+                <t t-if="env.isMobile">
+                    <MobileOrderWidget pane="mobile_pane" t-on-switchpane="switchPane"/>
+                </t>
+                
+            </div>
+        </xpath>
+    </t>
+</templates>

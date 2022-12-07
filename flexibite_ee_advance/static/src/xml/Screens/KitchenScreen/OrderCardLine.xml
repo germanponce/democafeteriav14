@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="OrderCardLine" owl="1">
+        <li class="cardline" t-ref-="orderLine">
+            <span class="qty" t-attf-style="text-decoration: {{ textStyle }};">
+                <t t-esc="props.line.qty"/>
+            </span>
+            <span class="name" t-attf-style="text-decoration: {{ textStyle }};">
+                <t t-esc="props.line.full_product_name"/>
+            </span>
+            <button t-if="props.line.state == 'Waiting' and props.popup != true" class="task-button"
+                    t-on-click="clickLineState"
+                    style="color: #4CAF50;">
+                    Start
+            </button>
+            <button t-if="props.line.state == 'Preparing' and props.popup != true" class="task-button"
+                    t-on-click="clickLineState"
+                    style="color: #03a9f4;">
+                    Done
+            </button>
+            <button class="print" t-if="props.popup != true" t-on-click="printLine">
+                <i class="fa fa-print" aria-hidden="true"/>
+            </button>
+            <ul t-if="props.line.note" class="materialcard">
+                Note : <t t-esc="props.line.note"/>
+            </ul>
+            <ul t-if="props.line.materiallines.length != 0" class="materialcard">
+                <t t-foreach="props.line.materiallines" t-as="materialline" t-key="materialline.id">
+                    <MaterialCardLine line="materialline"/>
+                </t>
+            </ul>
+            <ul t-if="props.line.combolines.length != 0" class="combocard">
+                <t t-foreach="props.line.combolines" t-as="comboline" t-key="comboline.id">
+                    <li class="comboline">
+                        <span class="combo-qty">
+                            <t t-esc="comboline.qty"/>
+                        </span>
+                        <span class="combo-name">
+                            <t t-esc="comboline.name"/>
+                        </span>
+                    </li>
+                    <ul t-if="comboline.materiallines.length != 0" class="combo-materialcard">
+                        <t t-foreach="comboline.materiallines" t-as="materialline" t-key="materialline.id">
+                            <MaterialCardLine line="materialline"/>
+                        </t>
+                    </ul>
+                </t>
+            </ul>
+        </li>
+    </t>
+
+</templates>

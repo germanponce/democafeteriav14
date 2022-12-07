@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="TokenReceipt" owl="1">
+        <div class="pos-receipt">
+            <t t-if="receipt.company.logo">
+                <img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo"/>
+                <br/>
+            </t>
+            <t t-if="!receipt.company.logo">
+                <h2 class="pos-receipt-center-align">
+                    <t t-esc="receipt.company.name"/>
+                </h2>
+                <br/>
+            </t>
+            <h2 class="pos-receipt-center-align">
+                Token No. : <t t-esc="receiptEnv.order.temp_increment_number"/>
+            </h2>
+            <!-- Orderlines -->
+            <div class="orderlines">
+                <t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+                    <t t-if="isSimple(line)">
+                        <div>
+                            <t t-esc="line.product_name_wrapped[0]"/>
+                            <span t-esc="env.pos.format_currency_no_symbol(line.price_display)"
+                                  class="price_display pos-receipt-right-align"/>
+                        </div>
+                        <WrappedProductNameLines line="line"/>
+                        <div style="font-size: 75%;">
+                            <t t-foreach="line.materiallines" t-as="materialline">
+                                <t t-if="materialline.is_changed and !materialline.is_replaced and materialline.bom">
+                                    <div>
+                                        <span style="font-weight: bold;">CHANGE: </span>
+                                        <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        <t t-if="materialline.quantity != materialline.max">
+                                            / <t
+                                                t-esc="Math.round(materialline.max * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        </t>
+                                        <t t-if="materialline.unit_name !== 'Units'" t-esc="materialline.unit_name"/>
+                                        -
+                                        <t t-esc="materialline.product_name_wrapped[0]"/>
+                                        <span t-if="materialline.price_display != 0"
+                                              t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                              class="price_display pos-receipt-custom-align"/>
+                                    </div>
+                                    <WrappedProductNameLines line="materialline"/>
+                                </t>
+                                <t t-if="materialline.is_replaced and materialline.bom">
+                                    <div>
+                                        <span style="font-weight: bold;">REPLACE: </span>
+                                        <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        <t t-if="materialline.quantity != materialline.max">
+                                            / <t
+                                                t-esc="Math.round(materialline.max * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        </t>
+                                        <t t-if="materialline.unit_name !== 'Units'" t-esc="materialline.unit_name"/>
+                                        -
+                                        <t t-esc="materialline.product_name"/>
+                                        <span> </span>
+                                        <span> with <t t-esc="materialline.product_name_wrapped[0]"/></span>
+                                        <span t-if="materialline.price_display != 0"
+                                              t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                              class="price_display pos-receipt-custom-align"/>
+                                    </div>
+                                    <WrappedProductNameLines line="materialline"/>
+                                </t>
+                                <t t-if="!materialline.is_changed and !materialline.is_replaced and materialline.bom">
+                                    <div>
+                                        <span style="font-weight: bold;">ADD: </span>
+                                        <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        <t t-if="materialline.unit_name !== 'Units'" t-esc="materialline.unit_name"/>
+                                        -
+                                        <t t-esc="materialline.product_name_wrapped[0]"/>
+                                        <span t-if="materialline.price_display != 0"
+                                              t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                              class="price_display pos-receipt-custom-align"/>
+                                    </div>
+                                    <WrappedProductNameLines line="materialline"/>
+                                </t>
+                                <t t-if="!materialline.bom">
+                                    <div>
+                                        <span style="font-weight: bold;">ADD: </span>
+                                        <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        <t t-if="materialline.unit_name !== 'Units'" t-esc="materialline.unit_name"/>
+                                        -
+                                        <t t-esc="materialline.product_name_wrapped[0]"/>
+                                        <span t-if="materialline.price_display != 0"
+                                              t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                              class="price_display pos-receipt-custom-align"/>
+                                    </div>
+                                    <WrappedProductNameLines line="materialline"/>
+                                </t>
+
+                            </t>
+                            <t t-foreach="line.combolines" t-as="comboline">
+                                <div>
+                                    <t t-if="comboline.is_replaced == true">
+                                        <span style="font-weight: bold;">REPLACE: </span>
+                                        <t t-esc="comboline.product_name"/>
+                                        <span> </span>
+                                        <span> with <br/>
+                                            <t t-esc="comboline.product_name_wrapped[0]"/></span>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="comboline.product_name_wrapped[0]"/>
+                                    </t>
+                                    <span t-if="comboline.price_display != 0"
+                                          t-esc="env.pos.format_currency_no_symbol(comboline.price_display)"/>
+                                </div>
+                                <WrappedProductNameLines line="comboline"/>
+                                <div class="pos-receipt-combo-material">
+                                    <t t-foreach="comboline.materiallines" t-as="materialline">
+                                        <t t-if="materialline.is_changed and materialline.bom">
+                                            <div>
+                                                <span style="font-weight: bold;">CHANGE: </span>
+                                                <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                <t t-if="materialline.quantity != materialline.max">
+                                                    / <t
+                                                        t-esc="Math.round(materialline.max * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                </t>
+                                                <t t-if="materialline.unit_name !== 'Units'"
+                                                   t-esc="materialline.unit_name"/>
+                                                -
+                                                <t t-esc="materialline.product_name_wrapped[0]"/>
+                                                <span t-if="materialline.price_display != 0"
+                                                      t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                                      class="price_display pos-receipt-combo-material-price-align"/>
+                                            </div>
+                                            <WrappedProductNameLines line="materialline"/>
+                                        </t>
+                                        <t t-if="materialline.is_replaced and materialline.bom">
+                                            <div>
+                                                <span style="font-weight: bold;">REPLACE: </span>
+                                                <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                <t t-if="materialline.quantity != materialline.max">
+                                                    / <t
+                                                        t-esc="Math.round(materialline.max * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                </t>
+                                                <t t-if="materialline.unit_name !== 'Units'"
+                                                   t-esc="materialline.unit_name"/>
+                                                -
+                                                <t t-esc="materialline.product_name"/>
+                                                <span> </span>
+                                                <span> with <t t-esc="materialline.product_name_wrapped[0]"/></span>
+                                                <span t-if="materialline.price_display != 0"
+                                                      t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                                      class="price_display pos-receipt-combo-material-price-align"/>
+                                            </div>
+                                            <WrappedProductNameLines line="materialline"/>
+                                        </t>
+                                        <t t-if="!materialline.bom">
+                                            <div>
+                                                <span style="font-weight: bold;">ADD: </span>
+                                                <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                <t t-if="materialline.unit_name !== 'Units'"
+                                                   t-esc="materialline.unit_name"/>
+                                                -
+                                                <t t-esc="materialline.product_name_wrapped[0]"/>
+                                                <span t-if="materialline.price_display != 0"
+                                                      t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                                      class="price_display pos-receipt-combo-material-price-align"/>
+                                            </div>
+                                            <WrappedProductNameLines line="materialline"/>
+                                        </t>
+
+                                    </t>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div t-esc="line.product_name_wrapped[0]"/>
+                        <WrappedProductNameLines line="line"/>
+                        <t t-if="line.display_discount_policy == 'without_discount' and line.price != line.price_lst">
+                            <div class="pos-receipt-left-padding">
+                                <t t-esc="env.pos.format_currency_no_symbol(line.price_lst)"/>
+                                ->
+                                <t t-esc="env.pos.format_currency_no_symbol(line.price)"/>
+                            </div>
+                        </t>
+                        <t t-elif="line.discount !== 0">
+                            <div class="pos-receipt-left-padding">
+                                <t t-if="env.pos.config.iface_tax_included === 'total'">
+                                    <t t-esc="env.pos.format_currency_no_symbol(line.price_with_tax_before_discount)"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="env.pos.format_currency_no_symbol(line.price)"/>
+                                </t>
+                            </div>
+                        </t>
+                        <t t-if="line.discount !== 0">
+                            <div class="pos-receipt-left-padding">
+                                Discount: <t t-esc="line.discount"/>%
+                            </div>
+                        </t>
+                        <div class="pos-receipt-left-padding">
+                            <t t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                            <t t-if="line.unit_name !== 'Units'" t-esc="line.unit_name"/>
+                            x
+                            <t t-esc="env.pos.format_currency_no_symbol(line.price_display_one)"/>
+                            <span class="price_display pos-receipt-right-align">
+                                <t t-esc="env.pos.format_currency_no_symbol(line.price_display)"/>
+                            </span>
+                        </div>
+                        <div style="font-size: 75%;">
+                            <t t-foreach="line.materiallines" t-as="materialline">
+                                <t t-if="materialline.is_changed and materialline.bom">
+                                    <div>
+                                        <span style="font-weight: bold;">CHANGE: </span>
+                                        <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        <t t-if="materialline.quantity != materialline.max">
+                                            / <t
+                                                t-esc="Math.round(materialline.max * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        </t>
+                                        <t t-if="materialline.unit_name !== 'Units'" t-esc="materialline.unit_name"/>
+                                        -
+                                        <t t-esc="materialline.product_name_wrapped[0]"/>
+                                        <span t-if="materialline.price_display != 0"
+                                              t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                              class="price_display pos-receipt-custom-align"/>
+                                    </div>
+                                    <WrappedProductNameLines line="materialline"/>
+                                </t>
+                                <t t-if="materialline.is_replaced and materialline.bom">
+                                    <div>
+                                        <span style="font-weight: bold;">REPLACE: </span>
+                                        <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        <t t-if="materialline.quantity != materialline.max">
+                                            / <t
+                                                t-esc="Math.round(materialline.max * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        </t>
+                                        <t t-if="materialline.unit_name !== 'Units'" t-esc="materialline.unit_name"/>
+                                        -
+                                        <t t-esc="materialline.product_name"/>
+                                        <span> </span>
+                                        <span> with <t t-esc="materialline.product_name_wrapped[0]"/></span>
+                                        <span t-if="materialline.price_display != 0"
+                                              t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                              class="price_display pos-receipt-custom-align"/>
+                                    </div>
+                                    <WrappedProductNameLines line="materialline"/>
+                                </t>
+                                <t t-if="!materialline.bom">
+                                    <div>
+                                        <span style="font-weight: bold;">ADD: </span>
+                                        <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                        <t t-if="materialline.unit_name !== 'Units'" t-esc="materialline.unit_name"/>
+                                        -
+                                        <t t-esc="materialline.product_name_wrapped[0]"/>
+                                        <span t-if="materialline.price_display != 0"
+                                              t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                              class="price_display pos-receipt-custom-align"/>
+                                    </div>
+                                    <WrappedProductNameLines line="materialline"/>
+                                </t>
+
+                            </t>
+                            <t t-foreach="line.combolines" t-as="comboline">
+                                <div>
+                                    <t t-if="comboline.is_replaced == true">
+                                        <span style="font-weight: bold;">REPLACE: </span>
+                                        <t t-esc="comboline.product_name"/>
+                                        <span> </span>
+                                        <span> with <br/>
+                                            <t t-esc="comboline.product_name_wrapped[0]"/></span>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="comboline.product_name_wrapped[0]"/>
+                                    </t>
+                                    <span t-if="comboline.price_display != 0"
+                                          t-esc="env.pos.format_currency_no_symbol(comboline.price_display)"/>
+                                </div>
+                                <WrappedProductNameLines line="comboline"/>
+                                <div class="pos-receipt-combo-material">
+                                    <t t-foreach="comboline.materiallines" t-as="materialline">
+                                        <t t-if="materialline.is_changed and materialline.bom">
+                                            <div>
+                                                <span style="font-weight: bold;">CHANGE: </span>
+                                                <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                <t t-if="materialline.quantity != materialline.max">
+                                                    / <t
+                                                        t-esc="Math.round(materialline.max * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                </t>
+                                                <t t-if="materialline.unit_name !== 'Units'"
+                                                   t-esc="materialline.unit_name"/>
+                                                -
+                                                <t t-esc="materialline.product_name_wrapped[0]"/>
+                                                <span t-if="materialline.price_display != 0"
+                                                      t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                                      class="price_display pos-receipt-combo-material-price-align"/>
+                                            </div>
+                                            <WrappedProductNameLines line="materialline"/>
+                                        </t>
+                                        <t t-if="materialline.is_replaced and materialline.bom">
+                                            <div>
+                                                <span style="font-weight: bold;">REPLACE: </span>
+                                                <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                <t t-if="materialline.quantity != materialline.max">
+                                                    / <t
+                                                        t-esc="Math.round(materialline.max * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                </t>
+                                                <t t-if="materialline.unit_name !== 'Units'"
+                                                   t-esc="materialline.unit_name"/>
+                                                -
+                                                <t t-esc="materialline.product_name"/>
+                                                <span> </span>
+                                                <span> with <t t-esc="materialline.product_name_wrapped[0]"/></span>
+                                                <span t-if="materialline.price_display != 0"
+                                                      t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                                      class="price_display pos-receipt-combo-material-price-align"/>
+                                            </div>
+                                            <WrappedProductNameLines line="materialline"/>
+                                        </t>
+                                        <t t-if="!materialline.bom">
+                                            <div>
+                                                <span style="font-weight: bold;">ADD: </span>
+                                                <t t-esc="Math.round(materialline.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+                                                <t t-if="materialline.unit_name !== 'Units'"
+                                                   t-esc="materialline.unit_name"/>
+                                                -
+                                                <t t-esc="materialline.product_name_wrapped[0]"/>
+                                                <span t-if="materialline.price_display != 0"
+                                                      t-esc="env.pos.format_currency_no_symbol(materialline.price_display)"
+                                                      class="price_display pos-receipt-combo-material-price-align"/>
+                                            </div>
+                                            <WrappedProductNameLines line="materialline"/>
+                                        </t>
+                                    </t>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </div>
+
+            <!-- Subtotal -->
+
+            <t t-if="!isTaxIncluded">
+                <div class="pos-receipt-right-align">--------</div>
+                <br/>
+                <div>Subtotal<span t-esc="env.pos.format_currency(receipt.subtotal)" class="pos-receipt-right-align"/></div>
+                <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                    <div>
+                        <t t-esc="tax.name"/>
+                        <span t-esc='env.pos.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+            </t>
+
+            <!-- Total -->
+            <div class="pos-receipt-right-align">--------</div>
+            <br/>
+            <div class="pos-receipt-amount">
+                TOTAL
+                <span t-esc="env.pos.format_currency(receipt.total_with_tax)" class="pos-receipt-right-align"/>
+            </div>
+
+            <br/>
+            <div class="pos-receipt-order-data">
+                <div><t t-esc="receipt.name" /></div>
+                <div><t t-esc="receipt.date.localestring" /></div>
+            </div>
+            
+        </div>
+    </t>
+
+</templates>

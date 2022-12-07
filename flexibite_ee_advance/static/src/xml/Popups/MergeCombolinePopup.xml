@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="MergeCombolinePopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-mg merge-comboline-popup">
+                <header class="title">
+                    Merge
+                </header>
+
+                <div class="merge_combo_line col-lg-4 col-md-6 col-sm-12">
+                    <div class="comboline">
+                        <span class="default-select">
+                            <t t-if="props.currentLine.is_replaced">
+                                <span style=""><t t-esc="props.currentLine.get_replaced_product_name()"/></span>
+                                <br/>
+                                <span style="text-decoration: line-through;"><t t-esc="props.currentLine.get_product().display_name"/></span>
+                            </t>
+                            <t t-else="">
+                                <t t-esc="props.currentLine.product.display_name"/>
+                            </t>
+                            <span class="price-tag">
+                                <t t-esc="props.currentLine.quantity"/>
+                            </span>
+                        </span>
+
+                        <LineMergeView item="props.currentLine"/>
+                    </div>
+                    <div t-foreach="props.list" t-as="item" t-key="item.id" class="comboline">
+                        <span class="head" t-att-class="{new_select : state.selected_lines[item.cid]}"
+                              t-on-click="trigger('click-head', {id:item.cid})">
+                            <t t-if="item.is_replaced">
+                                <span style=""><t t-esc="item.get_replaced_product_name()"/></span>
+                                <br/>
+                                <span style="text-decoration: line-through;"><t t-esc="props.currentLine.get_product().display_name"/></span>
+                            </t>
+                            <t t-else="">
+                                <t t-esc="item.product.display_name"/>
+                            </t>
+                            <span class="price-tag">
+                                <t t-esc="item.quantity"/>
+                            </span>
+                        </span>
+                        <LineMergeView item="item"/>
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <div class="button highlight confirm" t-on-click="confirm">
+                        Merge
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="LineMergeView" owl="1">
+        <div class="info scrollable-y">
+            <ul>
+                <t t-foreach="props.item.materiallines" t-as="line" t-key="line.id">
+                    <li class="info-item">
+                        <em>
+                            <t t-esc="line.get_quantity_str()"/>
+                        </em>
+                        -
+                        <span class="product-name">
+                            <t t-esc="line.product.display_name"/>
+                        </span>
+                        <br/>
+                        <span t-if="!line.bom" class="price_extra">
+                            + <t t-esc="env.pos.format_currency(line.price)"/>
+                        </span>
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </t>
+
+</templates>
