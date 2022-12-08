@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_invoice_form_inherit_morgan" model="ir.ui.view">
+        <field name="name">view.account.invoice.form.inherit.morgan</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <field name="ref" position="after">
+                <field name="is_morgan_invoice"
+                       attrs="{'invisible': [('move_type','=','entry')]}"/>
+                <field name="is_morgan_invoice_its_lines"
+                       attrs="{'invisible': [('move_type','!=','entry')]}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_account_move_line_form_inherit_morgan" model="ir.ui.view">
+        <field name="name">view.account.move.line.form.inherit.morgan</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="is_morgan_invoice"/>
+            </field>
+        </field>
+    </record>
+</odoo>
+

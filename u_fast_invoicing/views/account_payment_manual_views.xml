@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        MANUAL PAYMENT
+    -->
+    <record id="account_payment_view_form" model="ir.ui.view">
+        <field name="name">account.payment.manual.view.form</field>
+        <field name="model">account.payment.manual</field>
+        <field name="arch" type="xml">
+            <form string="Payment">
+                <header>
+                    <button string="Confirm" name="action_confirm" states="draft"
+                            type="object"
+                            class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet string="Payment">
+                    <div name="button_box" class="oe_button_box" attrs="{'invisible': [('id', '=', False)]}">
+                        <button class="oe_stat_button" type="object"
+                                name="action_view_sales_orders" icon="fa-shopping-cart">
+                            <field name="order_count" string="Orders" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" type="object"
+                                name="action_view_sales_payments" icon="fa-usd">
+                            <field name="payment_count" string="Payments" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" type="object"
+                                name="action_view_sales_invoices" icon="fa-pencil-square-o">
+                            <field name="invoice_count" string="Invoices" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="partner_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="partner_id" placeholder="Partner"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="amount"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="payment_date"/>
+                            <field name="communication"/>
+                        </group>
+                        <group>
+                            <field name="journal_id"/>
+                            <field name="l10n_mx_edi_payment_method_id" required="1"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"
+                           groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_payment_view_tree" model="ir.ui.view">
+        <field name="name">account.payment.manual.view.tree</field>
+        <field name="model">account.payment.manual</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'" decoration-muted="state in ('done','cancel')"
+                  string="Payment">
+                <field name="partner_id"/>
+                <field name="amount"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="payment_date"/>
+                <field name="communication"/>
+                <field name="journal_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_account_payment_search" model="ir.ui.view">
+        <field name="name">account.payment.manual.search</field>
+        <field name="model">account.payment.manual</field>
+        <field name="arch" type="xml">
+            <search string="Payment">
+                <field name="partner_id"/>
+                <field name="communication"/>
+                <field name="journal_id"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"
+                        help="Draft Payments"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="act_account_payment_view" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="res_model">account.payment.manual</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="account_payment_view_tree"/>
+        <field name="search_view_id" ref="view_account_payment_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click to create a new Payment.
+            </p>
+        </field>
+    </record>
+
+    <menuitem parent="account.menu_finance_receivables"
+              id="menu_act_account_payment_view"
+              name="Manual payments"
+              action="act_account_payment_view" sequence="60"
+              groups="account.group_account_manager"/>
+
+</odoo>

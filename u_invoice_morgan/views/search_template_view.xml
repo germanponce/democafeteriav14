@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="search_template_extra_options_morgan"
+                  inherit_id="account_reports.search_template_extra_options">
+            <xpath expr="//a" position="inside">
+                <t t-if="options.get('training_data') != None">
+                    <t t-if="options['training_data']">With Training data</t>
+                    <t t-if="not options['training_data']">Without training data</t>
+                </t>
+            </xpath>
+            <xpath expr="//div" position="inside">
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   t-if="options.get('training_data') != None" title="With Training data"
+                   data-filter="training_data"
+                   groups="u_invoice_morgan.yes_group_morgan">Training data</a>
+            </xpath>
+        </template>
+    </data>
+</odoo>

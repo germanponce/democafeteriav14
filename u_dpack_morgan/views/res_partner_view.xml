@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_inherit_morgan" model="ir.ui.view">
+        <field name="name">view.res.partner.form.inherit.morgan</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <group name="misc" position="after">
+                <group name="morgan_data" string="Training Data">
+                    <div name="morgan_percent">
+                        <label for="morgan_percent"/>
+                        <field name="morgan_percent" class="oe_inline"/> %%
+                    </div>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
+

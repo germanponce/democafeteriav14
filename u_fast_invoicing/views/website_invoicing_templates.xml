@@ -1,0 +1,807 @@
+<odoo>
+    <data>
+
+        <template id="invoicing_header" name="Invoicing Index">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Search View</t>
+                <div class="container mt16 website_fast_invoicing">
+                    <t t-set="step" t-value="10"/>
+                    <t t-call="u_fast_invoicing.progress_wizard"/>
+                    <div class="row mt8 navbar navbar-expand-md navbar-light bg-light">
+                        <div class="col col-xs-4 col-lg-3">
+                            <t t-call="website.website_search_box"/>
+                        </div>
+                    </div>
+                    <div class="row mt16 justify-content-center">
+                        <div class="col">
+                            <div class="alert alert-info mt16" role="alert">
+                                <p>
+                                    From here you can start search sale orders to be invoiced.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="message=='no-invoice'" class="row mt16 justify-content-center">
+                        <div class="col">
+                            <div class="alert alert-danger mt16" role="alert">
+                                <p>
+                                    Failed making invoice, maybe there is no line to invoice!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="message=='no-token'" class="row mt16 justify-content-center">
+                        <div class="col">
+                            <div class="alert alert-danger mt16" role="alert">
+                                <p>
+                                    Can not access to requested order. Check access!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="message=='no-partner'" class="row mt16 justify-content-center">
+                        <div class="col">
+                            <div class="alert alert-danger mt16" role="alert">
+                                <p>
+                                    Can not find or create partner with that information!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="message=='send-ok'" class="row mt16 justify-content-center">
+                        <div class="col">
+                            <div class="alert alert-success mt16" role="alert">
+                                <p>
+                                    Email send successfully!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="message=='send-failed'" class="row mt16 justify-content-center">
+                        <div class="col">
+                            <div class="alert alert-danger mt16" role="alert">
+                                <p>
+                                    Can not send email. Contact your admin.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="dismissible_alert">
+            <div class="row mt16 justify-content-center">
+                <div class="col">
+                    <div class="alert alert-danger alert-dismissible mt16" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">&#215;
+                        </button>
+                        <p>
+                            No sale order found with criteria "<strong t-esc='search'/>".
+                            Maybe that order is already invoiced.
+                            Contact your admin.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <!-- Template cuando la busqueda es vacia -->
+        <template id="dismissible_alert_null">
+            <div class="row mt16 justify-content-center">
+                <div class="col">
+                    <div class="alert alert-danger alert-dismissible mt16" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">&#215;
+                        </button>
+                        <p>
+                            Need to add a sale order reference before.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="sale_order_portal_content_inherit_fast_invoicing"
+                  name="Orders Fast Invoicing"
+                  inherit_id="sale.sale_order_portal_content">
+            <xpath expr="//div[@id='informations']/div[hasclass('row')]/div[hasclass('col-lg-6')][1]"
+                   position="inside">
+                <t t-if="fast_invoicing">
+                    <div class="row mb8" style="margin-left: 15px;">
+                        <em>
+                            For SAT dispose, domicile field is removed because is not required
+                        </em>
+                    </div>
+                    <div class="form-group row col-xl-8">
+                        <div class="col-md-4">
+                            <strong>VAT:</strong>
+                            
+                        </div>
+                        <div class="col-md-8">
+                            <span t-field="sale_order.partner_id.vat" name="vat"/>
+                        </div>
+                    </div>
+                    <div class="form-group row col-xl-8">
+                        <div class="col-md-4">
+                            <strong>Phone:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            <span t-field="sale_order.partner_id.phone" name="phone"/>
+                        </div>
+                    </div>
+                    <div class="form-group row col-xl-8">
+                        <div class="col-md-4">
+                            <strong>Email:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            <span t-field="sale_order.partner_id.email" name="email"/>
+                        </div>
+                    </div>
+                    <div t-if="sale_order.invoice_status=='to invoice'"
+                         class="form-group row col-xl-8">
+                        <label class="col-md-4 col-form-label" for="cfdi_use">
+                            <strong>CFDI Use</strong>
+                        </label>
+                        <div class="col-md-8">
+                            <select name="cfdi_use" class="form-control"
+                                    id="cfdi_field">
+                                <t t-foreach="cfdi or []" t-as="u">
+                                    <option t-att-value="u[0]"
+                                            t-att-selected="u[0] == 'P01'">
+                                        <t t-esc="u[1]"/>
+                                    </option>
+
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+            <xpath expr="//div[@id='informations']/div[hasclass('row')]/div[hasclass('col-lg-6')][1]/strong[1]"
+                   position="attributes">
+                <!--NO FORMATEAR -->
+                <attribute name="t-if">sale_order.partner_shipping_id==sale_order.partner_invoice_id and not fast_invoicing</attribute>
+            </xpath>
+            <xpath expr="//div[@id='informations']/div[hasclass('row')]/div[hasclass('col-lg-6')][1]/strong[2]"
+                   position="attributes">
+                <!--NO FORMATEAR -->
+                <attribute name="t-if">sale_order.partner_shipping_id!=sale_order.partner_invoice_id and not fast_invoicing</attribute>
+            </xpath>
+            <xpath expr="//div[@id='informations']/div[hasclass('row')]/div[hasclass('col-lg-6')][1]/address"
+                   position="attributes">
+                <attribute name="t-if">not fast_invoicing</attribute>
+            </xpath>
+        </template>
+
+        <template id="invoicing_order_page">
+            <t t-set="additional_title">Order View</t>
+            <t t-call="website.layout">
+                <div class="container website_fast_invoicing"
+                     t-attf-data-order="#{order and order.access_token}">
+                    <t t-set="step" t-value="20"/>
+                    <t t-call="u_fast_invoicing.progress_wizard"/>
+                    <t t-if="invoice">
+                        <div class="alert alert-info rounded-0 fade show d-print-none">
+                            <div class="container">
+                                <div t-ignore="true" class="text-center">
+                                    This order is invoiced with number
+                                    <a t-attf-href="#{go_url}">
+                                        <i class="fa fa-arrow-right"/>
+                                        <span t-field="invoice.name"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-if="order and not is_pos">
+                        <div t-attf-class="card pb-5">
+                            <t t-set="sale_order" t-value="order"/>
+                            <t t-set="report_type" t-value="'html'"/>
+                            <t t-set="fast_invoicing" t-value="True"/>
+                            <div t-call="sale.sale_order_portal_content"/>
+                        </div>
+                        <div class="row justify-content-center text-center d-print-none pt-1 pb-4">
+                            <div class="col-sm-auto mt8">
+                                <t t-if="order.invoice_status=='to invoice'">
+                                    <a role="button"
+                                       class="edit-partner-info btn btn-secondary">
+                                        <i class="fa fa-edit"/>
+                                        Generate invoice
+                                    </a>
+                                    <a role="button" style="display:none;"
+                                       class="make-invoice btn btn-secondary">
+                                        <i class="fa fa-check"/>
+                                        Make invoice
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-if="order and is_pos">
+                        <div class="card pb-5">
+                            <t t-call="u_fast_invoicing.pos_order_content"/>
+                        </div>
+                        <div class="row justify-content-center text-center d-print-none pt-1 pb-4">
+                            <div class="col-sm-auto mt8">
+                                <t t-if="not order.is_invoiced">
+                                    <a role="button"
+                                       class="edit-partner-info-pos btn btn-secondary">
+                                        <i class="fa fa-edit"/>
+                                        Generate invoice
+                                    </a>
+                                    <a role="button" style="display:none;"
+                                       class="make-invoice-pos btn btn-secondary">
+                                        <i class="fa fa-check"/>
+                                        Make invoice
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+        <template id="invoicing_order_page_style" inherit_id="invoicing_order_page">
+            <xpath expr="//a[hasclass('edit-partner-info', 'btn', 'btn-secondary')]"
+                   position="attributes">
+                <attribute name="class">edit-partner-info btn btn-primary</attribute>
+            </xpath>
+            <xpath expr="//a[hasclass('make-invoice', 'btn', 'btn-secondary')]"
+                   position="attributes">
+                <attribute name="class">make-invoice btn btn-primary</attribute>
+            </xpath>
+            <xpath expr="//a[hasclass('edit-partner-info-pos', 'btn', 'btn-secondary')]"
+                   position="attributes">
+                <attribute name="class">edit-partner-info-pos btn btn-primary</attribute>
+            </xpath>
+            <xpath expr="//a[hasclass('make-invoice-pos', 'btn', 'btn-secondary')]"
+                   position="attributes">
+                <attribute name="class">make-invoice-pos btn btn-primary</attribute>
+            </xpath>
+        </template>
+
+        <template id="progress_wizard">
+            <div class="row">
+                <div class="col-xl">
+                    <div class="wizard">
+                        <div class="progress-wizard">
+                            <a class="no-decoration"
+                               t-att-href="step&gt;10 and '/autofactura' or '#'">
+                                <div id="wizard-step10"
+                                     style="width: 33.4% !important;"
+                                     t-att-class="'progress-wizard-step %s' % (step == 10 and 'active' or step&gt;10 and 'complete' or 'disabled')">
+                                    <div class="progress-wizard-bar d-none d-md-block"/>
+                                    <span class="progress-wizard-dot d-none d-md-inline-block"/>
+                                    <div class="text-center progress-wizard-steplabel">
+                                        Search
+                                    </div>
+                                </div>
+                            </a>
+                            <t t-if="step >= 20">
+                                <t t-if="tpv">
+                                    <t t-set="order_url"
+                                       t-value="'/autofactura/pedido/tpv/' + order.access_token"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-set="order_url"
+                                       t-value="'/autofactura/pedido/' + order.access_token"/>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <t t-set="order_url" t-value="'#'"/>
+                            </t>
+                            <a class="no-decoration"
+                               t-att-href="order_url">
+                                <div id="wizard-step20"
+                                     style="width: 33.3% !important;"
+                                     t-att-class="'progress-wizard-step %s' % (step == 20 and 'active' or step&gt;20 and 'complete' or 'disabled')">
+                                    <div class="progress-wizard-bar d-none d-md-block"/>
+                                    <span class="progress-wizard-dot d-none d-md-inline-block"/>
+                                    <div class="text-center progress-wizard-steplabel">
+                                        Order
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="no-decoration"
+                               t-att-href="step&gt;30 and ('/autofactura/' + invoice.access_token + '/' + order.access_token) or '#'">
+                                <div id="wizard-step30"
+                                     style="width: 33.3% !important;"
+                                     t-att-class="'progress-wizard-step %s' % (step == 30 and 'active' or step&gt;30 and 'complete' or 'disabled')">
+                                    <div class="progress-wizard-bar d-none d-md-block"/>
+                                    <span class="progress-wizard-dot d-none d-md-inline-block"/>
+                                    <div class="text-center progress-wizard-steplabel">
+                                        Invoice
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <!-- Popup wizard para el llenado de información de la factura -->
+        <template id="invoicing_invoicing_modal">
+            <!-- ======  MODAL: Invoicing ====== -->
+            <div role="dialog" class="modal fade" id="invoicing-modal-create" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <header class="modal-header">
+                            <h4 class="modal-title">Make Invoice</h4>
+                        </header>
+                        <form method="post"
+                              class="fast-invoicing-submit"
+                              t-attf-action="/autofactura/#{ order.access_token }/submit">
+                            <input type="hidden" name="csrf_token"
+                                   t-att-value="request.csrf_token()"/>
+                            <input type="hidden" name="tpv" t-att-value="tpv"/>
+                            <input type="hidden" name="country_id"
+                                   t-att-value="order.partner_id.country_id.id"/>
+                            <input type="hidden" name="cfdi_use" t-attf-value="#{cfdi_use}"/>
+                            <main class="modal-body">
+                                <p>
+                                    Invoicing for
+                                    <strong t-field="order.name"/>
+                                </p>
+                                <p>
+                                    To complete the invoicing specify the following info. After write your VAT click in Search
+                                    button to find any coincidence and fill the data automatically.
+                                </p>
+                                <div class="form-group row col-xl-8" id="cfdi-grouper">
+                                    <label for="cfdi" class="col-xs-4 col-md-3 col-form-label">
+                                        CFDI
+                                        </label>
+                                            <div class="col-xs-8 col-md-9 cfdi">
+                                                <select name="cfdi" class="form-control"
+                                                    id="cfdi_field"  disabled="true">
+                                                    <t t-foreach="cfdi or []" t-as="u">
+                                                        <option t-att-value="u[0]"
+                                                                t-att-selected="u[0] == cfdi_use">
+                                                            <t t-esc="u[1]"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                                
+                                            </div>
+                                </div>
+                                <div class="form-group row col-xl-8" id="vat-grouper">
+                                    <label for="vat" class="col-xs-4 col-md-3 col-form-label">
+                                        VAT
+                                    </label>
+                                    <div class="input-group col-xs-8 col-md-9">
+                                        <input type="char" class="form-control vat" name="vat"
+                                               t-attf-value="#{partner and partner.vat or ''}"
+                                               />
+                                        <button class="btn btn-primary search">Buscar</button>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-xl-8" id="name-grouper" style="display:none;">
+                                    <label for="name" class="col-xs-4 col-md-3 col-form-label">
+                                        Name
+                                    </label>
+                                    <div class="col-xs-8 col-md-9 name" >
+                                        <input type="char" class="form-control" name="name"
+                                               t-attf-value="#{partner and partner.name or ''}"
+                                        /><!-- required="1"-->
+                                    </div>
+                                </div>
+                                <div class="form-group row col-xl-8" id="phone-grouper" style="display:none;">
+                                    <label for="phone" class="col-xs-4 col-md-3 col-form-label">
+                                        Phone
+                                    </label>
+                                    <div class="col-xs-8 col-md-9 phone">
+                                        <input type="char" class="form-control" name="phone"
+                                               t-attf-value="#{partner and partner.phone or ''}"
+                                        /><!-- required="1"-->
+                                    </div>
+                                </div>
+                                <div class="form-group row col-xl-8" id="email-grouper" style="display:none;">
+                                    <label for="email" class="col-xs-4 col-md-3 col-form-label">
+                                        Email
+                                    </label>
+                                    <div class="col-xs-8 col-md-9 email">
+                                        <input type="char" class="form-control" name="email"
+                                               t-attf-value="#{partner and partner.email or ''}"
+                                        /><!-- required="1"-->
+                                    </div>
+                                </div>
+                            </main>
+                            <footer class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Cancel
+                                </button>
+                                <button class="btn btn-primary submit" disabled="true">Confirm</button>
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="invoice_view">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Invoice View</t>
+                <div class="container website_fast_invoicing">
+                    <t t-set="step" t-value="30"/>
+                    <t t-call="u_fast_invoicing.progress_wizard"/>
+                    <div t-if="message=='no-payment'" class="row mt16 justify-content-center">
+                        <div class="col">
+                            <div class="alert alert-danger mt16" role="alert">
+                                <p>
+                                    Failed making payment. Contact your admin.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt16">
+                        <t t-call="portal.portal_record_sidebar">
+                            <t t-set="classes" t-value="'col-lg-auto d-print-none'"/>
+
+                            <t t-set="title">
+                                <h2 class="mb-0">
+                                    <b t-field="invoice.amount_total" data-id="total_amount"/>
+                                </h2>
+                            </t>
+                            <t t-set="entries">
+                                <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                                    <li name="invoice-view-btn"
+                                        class="list-group-item flex-grow-1">
+                                        <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                            <div class="btn-group flex-grow-1 mr-1 mb-1">
+                                                <a class="btn btn-secondary btn-block o_download_btn"
+                                                   name="download_pdf"
+                                                   t-att-href="invoice.get_portal_url(report_type='pdf', download=True)"
+                                                   title="Download">
+                                                    <i class="fa fa-download"/>
+                                                    Download pdf
+                                                </a>
+                                            </div>
+                                            <t t-set="xml_url"
+                                               t-value="invoice.get_xml_file_url()"/>
+                                            <t t-if="xml_url">
+                                                <div class="btn-group flex-grow-1 mr-1 mb-1">
+                                                    <a class="btn btn-secondary btn-block o_download_btn"
+                                                       name="download_xml"
+                                                       t-attf-href="#{xml_url}"
+                                                       title="Download">
+                                                        <i class="fa fa-download"/>
+                                                        Download xml
+                                                    </a>
+                                                </div>
+                                            </t>
+                                            <div class="btn-group flex-grow-1 mb-1">
+                                                <a class="btn btn-secondary btn-block o_print_btn o_portal_invoice_print"
+                                                   t-attf-href="/autofactura/send/#{invoice.access_token}"
+                                                   name="send_mail"
+                                                   id="print_invoice_report" title="Send">
+                                                    <i class="fa fa-send"/>
+                                                    Send by Email
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </t>
+                        </t>
+                        <div id="address_content" class="col-12 col-lg justify-content-end">
+                            <div class="card pb-5">
+                                <div id="introduction" class="pb-2 pt-3 card-header bg-white">
+                                    <h2 class="my-0">
+                                        <t t-if="tpv">
+                                            <span t-field="order.name"/>
+                                            <em t-esc="order.pos_reference"/>
+                                        </t>
+                                        <t t-if="not tpv">
+                                            <span t-field="order.type_name"/>
+                                            <em t-esc="order.name"/>
+                                        </t>
+                                    </h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row" id="so_date">
+                                        <div class="mb-3 col-6">
+                                            <t>
+                                                <strong>Order Date:</strong>
+                                            </t>
+                                            <span t-field="order.date_order" t-options='{"widget": "date"}'/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <address t-field="order.partner_id"
+                                                     t-options='{"widget": "contact", "fields": ["address", "name", "phone", "email", "country_id"], "no_marker": True}'/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="invoice_view_style" inherit_id="invoice_view">
+            <xpath expr="//a[@name='download_pdf']" position="attributes">
+                <attribute name="class">btn btn-primary btn-block o_download_btn</attribute>
+            </xpath>
+            <xpath expr="//a[@name='download_xml']" position="attributes">
+                <attribute name="class">btn btn-primary btn-block o_download_btn</attribute>
+            </xpath>
+            <xpath expr="//a[@name='send_mail']" position="attributes">
+                <attribute name="class">btn btn-primary btn-block o_print_btn
+                    o_portal_invoice_print
+                </attribute>
+            </xpath>
+            <xpath expr="//li[@name='invoice-view-btn']" position="attributes">
+                <attribute name="style">width:100%!important;display:contents!important;
+                </attribute>
+            </xpath>
+        </template>
+
+        <template id="pos_order_content" name="Pos Order Content">
+            <!-- Intro -->
+            <div id="introduction" class="pb-2 pt-3 card-header bg-white">
+                <h2 class="my-0">
+                    <span t-field="order.name"/>
+                    <em t-esc="order.pos_reference"/>
+                </h2>
+            </div>
+
+            <div class="card-body">
+                <!-- Informations -->
+                <div id="informations">
+                    <div class="mb-3">
+                        <strong>Date:</strong>
+                        <span t-field="order.date_order" t-options='{"widget": "date"}'/>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group row col-xl-8">
+                                <div class="col-md-4">
+                                    <strong>VAT:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <span t-field="order.partner_id.vat" name="vat"/>
+                                </div>
+                            </div>
+                            <div class="form-group row col-xl-8">
+                                <div class="col-md-4">
+                                    <strong>Name:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <span t-field="order.partner_id.name" name="name"/>
+                                </div>
+                            </div>
+                            <div class="form-group row col-xl-8">
+                                <div class="col-md-4">
+                                    <strong>Address:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <span t-field="order.partner_id.contact_address" name="address"/>
+                                </div>
+                            </div>
+                            <div t-if="not order.is_invoiced" class="form-group row col-xl-8">
+                                <label class="col-md-4 col-form-label" for="cfdi_use">
+                                    <strong>CFDI Use</strong>
+                                </label>
+                                <div class="col-md-8">
+                                    <select name="cfdi_use" class="form-control"
+                                            
+                                            id="cfdi_field">
+                                        <t t-foreach="cfdi or []" t-as="u">
+                                            <option t-att-value="u[0]"
+                                                    t-att-selected="u[0] == 'P01'">
+                                                <t t-esc="u[1]"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group row col-xl-8">
+                                <div class="col-md-4">
+                                    <strong>Phone:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <span t-field="order.partner_id.phone" name="phone"/>
+                                </div>
+                            </div>
+                            <div class="form-group row col-xl-8">
+                                <div class="col-md-4">
+                                    <strong>Email:</strong>
+                                </div>
+                                <div class="col-md-8">
+                                    <span t-field="order.partner_id.email" name="email"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <t t-set="invoice"
+                       t-value="order.account_move.filtered(lambda x: x.state not in ('draft', 'cancel'))"/>
+                    <div t-if="invoice" class="row">
+                        <div class="col">
+                            <strong class="d-block mb-1">Invoice</strong>
+                            <ul class="list-group mb-4">
+                                <t t-set="report_url"
+                                   t-value="invoice.get_portal_url(report_type='pdf', download=True)"/>
+                                <a class="list-group-item list-group-item-action d-flex flex-wrap align-items-center justify-content-between py-2 px-3"
+                                   t-att-href="report_url">
+                                    <div>
+                                        <i class="fa fa-download mr-1" role="img"
+                                           aria-label="Download" title="Download"/>
+                                        <span t-esc="invoice.name" class="mr-lg-3"/>
+                                        <div class="small d-lg-inline-block">Date:
+                                            <span class="text-muted"
+                                                  t-field="invoice.date"/>
+                                        </div>
+                                    </div>
+                                    <span t-if="invoice.state == 'paid'"
+                                          class="small text-success orders_label_text_align">
+                                        <i class="fa fa-fw fa-check"/>
+                                        <b>Paid</b>
+                                    </span>
+                                    <span t-else=""
+                                          class="small text-info orders_label_text_align">
+                                        <i class="fa fa-fw fa-clock-o"/>
+                                        <b>Waiting Payment</b>
+                                    </span>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <section id="details" style="page-break-inside: auto;" class="mt32">
+                    <h3 id="details">Details</h3>
+
+                    <t t-set="display_discount"
+                       t-value="True in [line.discount > 0 for line in order.lines]"/>
+
+                    <table class="table table-sm" id="pos_order_table">
+                        <thead class="bg-100">
+                            <tr>
+                                <t t-set="colspan" t-value="7"/>
+                                <th class="text-left">Products</th>
+                                <th class="text-left">Lot</th>
+                                <th class="text-right">Quantity</th>
+                                <th class="text-right d-none d-sm-table-cell">
+                                    Unit Price
+                                </th>
+                                <th t-if="display_discount"
+                                    class="text-right d-none d-sm-table-cell">
+                                    <span>Discount</span>
+                                    <t t-set="colspan" t-value="colspan+1"/>
+                                </th>
+                                <th class="text-right d-none d-md-table-cell">
+                                    Taxes
+                                </th>
+                                <th class="text-right">
+                                    <span>
+                                        Amount
+                                    </span>
+                                </th>
+                                <th class="text-right">
+                                    <span>
+                                        Total Price
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+
+
+                            <t t-foreach="order.lines" t-as="line">
+
+                                <tr class="bg-200 font-weight-bold o_line_section">
+                                    <td id="product_name">
+                                        <span t-field="line.product_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="', '.join(line.mapped('pack_lot_ids.lot_name'))"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <div id="quote_qty">
+                                            <span t-field="line.qty"/>
+                                            <span t-field="line.product_id.uom_id"
+                                                  groups="uom.group_uom"/>
+                                        </div>
+                                    </td>
+                                    <td class="text-right d-none d-sm-table-cell">
+                                        <div
+                                                t-if="line.discount &gt;= 0"
+                                                t-field="line.price_unit"
+                                                t-att-style="line.discount and 'text-decoration: line-through' or None"
+                                                t-att-class="(line.discount and 'text-danger' or '') + ' text-right'"
+                                        />
+                                        <div t-if="line.discount">
+                                            <t t-esc="(1-line.discount / 100.0) * line.price_unit"
+                                               t-options='{"widget": "float", "decimal_precision": "Product Price"}'/>
+                                        </div>
+                                    </td>
+                                    <td t-if="display_discount"
+                                        class="text-right d-none d-sm-table-cell">
+                                        <strong t-if="line.discount &gt; 0" class="text-info">
+                                            <t t-esc="((line.discount % 1) and '%s' or '%d') % line.discount"/>
+                                            % discount
+                                        </strong>
+                                    </td>
+                                    <td class="text-right d-none d-md-table-cell">
+                                        <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="oe_order_line_price_subtotal"
+                                              t-field="line.price_subtotal"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span class="oe_order_line_price_total"
+                                              t-field="line.price_subtotal_incl"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <div id="total" class="row" name="total" style="page-break-inside: avoid;">
+                        <div class="col-sm-7 col-md-5 ml-auto">
+                            <table class="table table-sm">
+                                <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                    <td>
+                                        <strong>Amount tax</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span
+                                                data-id="total_taxed"
+                                                t-field="order.amount_tax"
+                                                t-options='{"widget": "monetary","display_currency": order.pricelist_id.currency_id}'
+                                        />
+                                    </td>
+                                </tr>
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span data-id="total_amount"
+                                              t-field="order.amount_total"
+                                              t-options='{"widget": "monetary", "display_currency": order.pricelist_id.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="terms" class="mt-5" t-if="order.note">
+                    <h3 class="">Terms &amp; Conditions</h3>
+                    <hr class="mt-0 mb-1"/>
+                    <em t-field="order.note"/>
+                </section>
+            </div>
+        </template>
+
+        <template id="invoice_error" name="Invoice Error">
+            <t t-call="website.layout">
+                <t t-set="title">Invoice Error</t>
+                <div class="container website_fast_invoicing_error">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4>
+                                        Sale Order <a t-attf-href="/autofactura"><em t-esc="order.name"/></a> not invoiced.
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure mb32"/>
+            </t>
+        </template>
+
+    </data>
+</odoo>

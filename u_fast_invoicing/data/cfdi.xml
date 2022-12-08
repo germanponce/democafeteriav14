@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cfdiv33" inherit_id="l10n_mx_edi.cfdiv33">
+        <xpath expr="//*[name()='cfdi:Receptor']" position="attributes">
+            <attribute name="t-att-Rfc">record.auto_invoice_vat or customer_rfc</attribute>
+            <attribute name="t-att-Nombre">'***' if record.auto_invoice_vat else format_string(customer.commercial_partner_id.name, 254)</attribute>
+        </xpath>
+    </template>
+</odoo>

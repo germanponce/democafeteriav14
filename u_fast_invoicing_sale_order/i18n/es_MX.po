@@ -1,0 +1,1431 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* u_fast_invoicing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-23 01:59+0000\n"
+"PO-Revision-Date: 2020-12-22 21:02-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.dismissible_alert
+msgid ""
+"\".\n"
+"                            Maybe that order is already invoiced.\n"
+"                            Contact your admin."
+msgstr ""
+"\".\n"
+"                            Puede ser que ese pedido ya esté facturado.\n"
+"                            Contacte con el responsable."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "% discount"
+msgstr "Dto %."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.sale_order_portal_content_inherit_fast_invoicing
+msgid ""
+"<em>\n"
+"                            For SAT dispose, domicile field is removed "
+"because is not required\n"
+"                        </em>"
+msgstr ""
+"<em>\n"
+"                            Por disposición del SAT, se elimina el campo del "
+"domicilio al no ser obligatorio\n"
+"                        </em>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_order_page
+msgid ""
+"<i class=\"fa fa-check\"/>\n"
+"                                        Make invoice"
+msgstr ""
+"<i class=\"fa fa-check\"/>\n"
+"                                        Facturar"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid ""
+"<i class=\"fa fa-download mr-1\" role=\"img\" aria-label=\"Download\" title="
+"\"Download\"/>"
+msgstr ""
+"<i class=\"fa fa-download mr-1\" role=\"img\" aria-label=\"Descargar\" title="
+"\"Descargar\"/>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_view
+msgid ""
+"<i class=\"fa fa-download\"/>\n"
+"                                                        Download xml"
+msgstr ""
+"<i class=\"fa fa-download\"/>\n"
+"                                                Descargar xml"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_view
+msgid ""
+"<i class=\"fa fa-download\"/>\n"
+"                                                    Download pdf"
+msgstr ""
+"<i class=\"fa fa-download\"/>\n"
+"                                                Descargar pdf"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_order_page
+msgid ""
+"<i class=\"fa fa-edit\"/>\n"
+"                                        Edit data"
+msgstr ""
+"<i class=\"fa fa-edit\"/>\n"
+"                                        Editar datos"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid ""
+"<i class=\"fa fa-fw fa-check\"/>\n"
+"                                        <b>Paid</b>"
+msgstr ""
+"<i class=\"fa fa-check\"/>\n"
+"                                        Pagada"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid ""
+"<i class=\"fa fa-fw fa-clock-o\"/>\n"
+"                                        <b>Waiting Payment</b>"
+msgstr ""
+"<i class=\"fa fa-check\"/>\n"
+"                                        Esperando Pago"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_view
+msgid ""
+"<i class=\"fa fa-send\"/>\n"
+"                                                    Send by Email"
+msgstr ""
+"<i class=\"fa fa-send\"/>\n"
+"                                                   Enviar por Email"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "<p>Message from auto invoice by {}</p>"
+msgstr "<p>Mensaje desde auto factura por {}</p>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Default VAT number</span>"
+msgstr "<span class=\"o_form_label\">RFC</span>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Notification channels</span>"
+msgstr "<span class=\"o_form_label\">Canales de notificación</span>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid ""
+"<span>\n"
+"                                        Amount\n"
+"                                    </span>\n"
+"                                    <span>\n"
+"                                        Total Price\n"
+"                                    </span>"
+msgstr ""
+"<span>\n"
+"                                        Subtotal neto\n"
+"                                    </span>\n"
+"                                    <span>\n"
+"                                        Subtotal\n"
+"                                    </span>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "<span>Discount</span>"
+msgstr "<span>Descuento</span>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "<strong class=\"d-block mb-1\">Invoice</strong>"
+msgstr "<strong class=\"d-block mb-1\">Factura</strong>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "<strong>Amount tax</strong>"
+msgstr "<strong>Impuestos</strong>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.sale_order_portal_content_inherit_fast_invoicing
+msgid "<strong>CFDI Use</strong>"
+msgstr "<strong>Uso del CFDI</strong>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Fecha:</strong>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.sale_order_portal_content_inherit_fast_invoicing
+msgid "<strong>Email:</strong>"
+msgstr "<strong>Correo:</strong>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.sale_order_portal_content_inherit_fast_invoicing
+msgid "<strong>Phone:</strong>"
+msgstr "<strong>Teléfono:</strong>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.sale_order_portal_content_inherit_fast_invoicing
+msgid "<strong>VAT:</strong>"
+msgstr "<strong>RFC:</strong>"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_pos_order__access_token
+msgid "Access Token"
+msgstr "Clave de Acceso"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Acquisition of merchandise"
+msgstr "Adquisición de mercancías"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_needaction
+msgid "Action Needed"
+msgstr "Acción requerida"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Activity Exception Decoration"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__activity_state
+msgid "Activity State"
+msgstr "Estado de la actividad"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__amount
+msgid "Amount"
+msgstr "Importe"
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo de archivos adjuntos"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_move__auto_invoice_vat
+msgid "Auto Invoice Vat"
+msgstr "RFC Auto Factura"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_move__auto_payment_policy
+msgid "Auto Payment Policy"
+msgstr "Plazo de pago"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/misc.js:0
+#, python-format
+msgid "Auto facturando..."
+msgstr "Auto facturando..."
+
+#. module: u_fast_invoicing
+#: model:ir.actions.server,name:u_fast_invoicing.action_auto_invoice_server
+msgid "Auto invoice"
+msgstr "Autofacturar"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_header
+msgid "Can not access to requested order. Check access!"
+msgstr ""
+"No se puede acceder al pedido solicitado. Verifique el acceso con su "
+"administrador!"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_header
+msgid "Can not find or create partner with that information!"
+msgstr ""
+"No se pudo registrar sus datos en nuestro sistema, verifique nuevamente!"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_header
+msgid "Can not send email. Contact your admin."
+msgstr "No se pudo enviar el Email. Por favor contacte con el responsable."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_invoicing_modal
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields.selection,name:u_fast_invoicing.selection__account_payment_manual__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelada"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.res_config_settings_view_form
+msgid "Channels to notify the issues in auto invoice process."
+msgstr "Canales para reportar las incidencias del proceso de auto factura."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.actions.act_window,help:u_fast_invoicing.act_account_payment_view
+msgid "Click to create a new Payment."
+msgstr "Click para crear un nuevoPago."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.dismissible_alert
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Computer equipment and accessories"
+msgstr "Equipo de cómputo y accesorios"
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuración"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.account_payment_view_form
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_invoicing_modal
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Constructions"
+msgstr "Construcciones"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__create_uid
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__create_date
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.res_config_settings_view_form
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__payment_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_company__fi_generic_vat_number
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_config_settings__fi_generic_vat_number
+msgid "Default Invoicing VAT"
+msgstr "RFC Para Autofactura"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.res_config_settings_view_form
+msgid "Default vat number for generic invoice process."
+msgstr "RFC por defecto para la facturación masiva."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Deposits in savings accounts, premiums based on pension plans."
+msgstr ""
+"Depósitos en cuentas para el ahorro, primas que tengan como base planes de "
+"pensiones."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "Details"
+msgstr "Detalles"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Dices, dies, molds, matrices and tooling"
+msgstr "Dados, troqueles, moldes, matrices y herramental"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__display_name
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Donations"
+msgstr "Donativos"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_view
+msgid "Download"
+msgstr "Descargar"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields.selection,name:u_fast_invoicing.selection__account_payment_manual__state__draft
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.view_account_payment_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.view_account_payment_search
+msgid "Draft Payments"
+msgstr "Pagos en borrador"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/u_fast_invoicing.js:0
+#, python-format
+msgid "El número de RFC es requerido para realizar la auto factura."
+msgstr "El número de RFC es requerido para realizar la auto factura."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_header
+msgid "Email send successfully!"
+msgstr "Email enviado satisfactoriamente!"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/u_fast_invoicing.js:0
+#, python-format
+msgid "Enviado !"
+msgstr "Enviado !"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/inherit_sale_order.py:0
+#, python-format
+msgid "Error auto invoicing SO {}. {}"
+msgstr "Error auto facturando el pedido {}. {}"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/u_fast_invoicing.js:0
+#, python-format
+msgid "Error: "
+msgstr "Error: "
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_header
+msgid "Failed making invoice, maybe there is no line to invoice!"
+msgstr ""
+"No se pudo crear la factura, puede ser que no existan líneas para facturar!"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_view
+msgid "Failed making payment. Contact your admin."
+msgstr ""
+"No se puedo validar el pago de su factura. Contacte con el administrador "
+"para realizar el pago lo antes posible."
+
+#. module: u_fast_invoicing
+#: model:website.menu,name:u_fast_invoicing.menu_website_fast_invoicing
+msgid "Fast Invoicing"
+msgstr "Autofactura"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.res_config_settings_view_form
+msgid "Fast invoicing"
+msgstr "Autofactura"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Empresas)"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.view_account_invoice_filter
+msgid "From AF"
+msgstr "De autofactura"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_move__from_auto_invoice
+msgid "From Auto Invoice"
+msgstr "Desde autofactura"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_header
+msgid "From here you can start search sale orders to be invoiced."
+msgstr ""
+"Desde esta pantalla puede buscar los pedidos de ventas que desea facturar."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Funeral expenses"
+msgstr "Gastos funerales"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.view_account_invoice_filter
+msgid "General Public"
+msgstr "Público en general"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "General expenses"
+msgstr "Gastos en general"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.view_order_inv_ref_form
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.view_pos_pos_inv_ref_form
+msgid "Generate Ref"
+msgstr "Generar Referencia"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Generic"
+msgstr "Genérico"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__id
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icon to indicate an exception activity."
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__message_needaction
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "If checked new messages require your attention."
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__message_has_error
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_report_sale_order_doc
+msgid "If you want to invoice this order visit"
+msgstr "Si desea facturar este pedido visite"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/xml/inherit_pos_ticket.xml:0
+#, python-format
+msgid "If you want to invoice this order visit:"
+msgstr "Si desea facturar este pedido visite:"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__l10n_mx_edi_payment_method_id
+msgid ""
+"Indicates the way the payment was/will be received, where the options could "
+"be: Cash, Nominal Check, Credit Card, etc."
+msgstr ""
+"Indica la forma en que el pago fue/será recibido, donde las opciones pueden "
+"ser: Efectivo, Cheque Nominal, Tarjeta de Crédito, etc."
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_res_partner
+msgid "Inherit res partner to add holly fields"
+msgstr "Inherit res partner to add holly fields"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.progress_wizard
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__invoice_count
+msgid "Invoice Count"
+msgstr "# Facturas"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_error
+msgid "Invoice Error"
+msgstr "Error en Factura"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_view
+msgid "Invoice View"
+msgstr "Vista Factura"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/inherit_account_payment_model.py:0
+#, python-format
+msgid "Invoice {} added to payment."
+msgstr "Factura {} adicionada al pago."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/manual_account_payment_model.py:0
+#, python-format
+msgid "Invoice(s)"
+msgstr "Factura(s)"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__invoice_ids
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.account_payment_view_form
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_pos_order__invoicing_ref
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_sale_order__invoicing_ref
+msgid "Invoicing Ref"
+msgstr "Referencia Facturación"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_invoicing_modal
+msgid "Invoicing for"
+msgstr "Facturación para"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__journal_id
+msgid "Journal"
+msgstr "Diario"
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_account_move
+msgid "Journal Entries"
+msgstr "Apuntes contables"
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual____last_update
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__write_uid
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__write_date
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/xml/throbber.xml:0
+#, python-format
+msgid "Loading..."
+msgstr "Cargando..."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "Lot"
+msgstr "Lote"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_invoicing_modal
+msgid "Make Invoice"
+msgstr "Facturar"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Mandatory School Transportation Expenses"
+msgstr "Gastos de transportación escolar obligatoria"
+
+#. module: u_fast_invoicing
+#: model:ir.ui.menu,name:u_fast_invoicing.menu_act_account_payment_view
+msgid "Manual payments"
+msgstr "Pagos manuales"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Medical expenses for disability"
+msgstr "Gastos médicos por incapacidad o discapacidad"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Medical insurance premiums"
+msgstr "Primas por seguros de gastos médicos"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Medical, dental and hospital expenses."
+msgstr "Honorarios médicos, dentales y gastos hospitalarios."
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__communication
+msgid "Memo"
+msgstr "Circular"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Envío de Mensaje"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner__multiple_vat
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_users__multiple_vat
+msgid "Multiple Vat"
+msgstr "Múltiple RFC"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Siguiente plazo de actividad"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la siguiente actividad"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.dismissible_alert
+msgid "No sale order found with criteria \""
+msgstr "No se ha encontrado ningún pedido con el criterio \""
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/misc.js:0
+#, python-format
+msgid "No te vallas,<br />seguimos auto facturando..."
+msgstr "No te vallas,<br />seguimos auto facturando..."
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_company__fi_notification_channel_ids
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_config_settings__fi_notification_channel_ids
+msgid "Notification channels"
+msgstr "Canales de notificación"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_has_error_counter
+msgid "Number of errors"
+msgstr "# de errores"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leidos"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Office furniture and equipment investment"
+msgstr "Mobilario y equipo de oficina por inversiones"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/u_fast_invoicing.js:0
+#, python-format
+msgid "Ok"
+msgstr "Ok"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "One of the parts of the number are invalid or unknown."
+msgstr "Una de las partes del número es incorrecta o desconocida."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.progress_wizard
+msgid "Order"
+msgstr "Pedido"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__order_count
+msgid "Order Count"
+msgstr "# Pedidos"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_order_page
+msgid "Order View"
+msgstr "Vista Pedido"
+
+#. module: u_fast_invoicing
+#: model:ir.actions.server,name:u_fast_invoicing.month_order_fast_invoicing_cron_ir_actions_server
+#: model:ir.cron,cron_name:u_fast_invoicing.month_order_fast_invoicing_cron
+#: model:ir.cron,name:u_fast_invoicing.month_order_fast_invoicing_cron
+msgid "Order: Invoicing (last day)"
+msgstr "Pedido: Facturación (último día)"
+
+#. module: u_fast_invoicing
+#: model:ir.actions.server,name:u_fast_invoicing.day_order_fast_invoicing_cron_ir_actions_server
+#: model:ir.cron,cron_name:u_fast_invoicing.day_order_fast_invoicing_cron
+#: model:ir.cron,name:u_fast_invoicing.day_order_fast_invoicing_cron
+msgid "Order: Invoicing (three days earlier)"
+msgstr "Pedido: Facturación (tres días antes)"
+
+#. module: u_fast_invoicing
+#: model:ir.actions.server,name:u_fast_invoicing.cron_auto_invoice_massive_process_ir_actions_server
+#: model:ir.cron,cron_name:u_fast_invoicing.cron_auto_invoice_massive_process
+#: model:ir.cron,name:u_fast_invoicing.cron_auto_invoice_massive_process
+msgid "Order: Massive Invoice Process"
+msgstr "Pedidos: Facturación Masiva"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__order_ids
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.account_payment_view_form
+msgid "Orders"
+msgstr "# Pedidos"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Other machinery and equipment"
+msgstr "Otra maquinaria y equipo"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__partner_id
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__partner_id
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.account_payment_view_form
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.account_payment_view_form
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.account_payment_view_tree
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.view_account_payment_search
+msgid "Payment"
+msgstr "Pago"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__payment_count
+msgid "Payment Count"
+msgstr "# Pagos"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__l10n_mx_edi_payment_method_id
+msgid "Payment Way"
+msgstr "Forma de pago"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/manual_account_payment_model.py:0
+#, python-format
+msgid "Payment(s)"
+msgstr "Pago (s)"
+
+#. module: u_fast_invoicing
+#: model:ir.actions.act_window,name:u_fast_invoicing.act_account_payment_view
+#: model:ir.model,name:u_fast_invoicing.model_account_payment
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__payment_ids
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.account_payment_view_form
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Payments for educational services (Colegiatura)"
+msgstr "Pagos por servicios educativos (colegiaturas)"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/manual_account_payment_model.py:0
+#, python-format
+msgid "Please set a positive amount."
+msgstr "Por favor, ingrese un importe positivo."
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedido Punto de Venta"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "Products"
+msgstr "Productos"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/misc.js:0
+#, python-format
+msgid "Puede que no lo creas,<br />pero la aplicación sigue auto facturando..."
+msgstr ""
+"Puede que no lo creas,<br />pero la aplicación sigue auto facturando..."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/u_fast_invoicing.js:0
+#, python-format
+msgid "RFC"
+msgstr "RFC"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Real interest effectively paid for mortgage loans (room house)"
+msgstr ""
+"Intereses reales efectivamente pagados por créditos hipotecarios (casa "
+"habitación)."
+
+#. module: u_fast_invoicing
+#: model:res.groups,name:u_fast_invoicing.group_reserve_payment
+msgid "Reserve payment for sale order"
+msgstr "Reservar pago para pedido de venta"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Returns, discounts or bonuses"
+msgstr "Devoluciones, descuentos o bonificaciones"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de Envío de Mensaje"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_error
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment__reserved_order_id
+msgid "Sale order"
+msgstr "Pedido de venta"
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/manual_account_payment_model.py:0
+#, python-format
+msgid "Sales Order(s)"
+msgstr "Pedido de venta(s)"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Satellite communications"
+msgstr "Comunicaciones satelitales"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.progress_wizard
+msgid "Search"
+msgstr "Búsqueda"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_header
+msgid "Search View"
+msgstr "Vista Búsqueda"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/misc.js:0
+#, python-format
+msgid "Seguimos auto facturando..."
+msgstr "Seguimos auto facturando..."
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/misc.js:0
+#, python-format
+msgid "Seguimos auto facturando...<br />Por favor sea paciente."
+msgstr "Seguimos auto facturando...<br />Por favor sea paciente."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_view
+msgid "Send"
+msgstr "Enviar"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_sale_order__service_effective_date
+msgid "Service Effective Date"
+msgstr "Fecha Efectiva Servicio"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Vencida: la fecha tope ya ha pasado\n"
+"Hoy: La fecha tope es hoy\n"
+"Planificada: futuras actividades."
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/misc.js:0
+#, python-format
+msgid "Tal ves deba considerar refrescar la aplicación presionando F5..."
+msgstr "Tal ves deba considerar refrescar la aplicación presionando F5..."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.report_invoice_document
+msgid "Tax ID"
+msgstr "Con impuesto"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment__reserved_order_id
+msgid "Technical field used to reserve a payment to sale order."
+msgstr "Campo técnico utilizado para reservar el pago a un pedido de venta."
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_account_payment_manual
+msgid "Technical module to separate payments."
+msgstr "Modelo para dividir pagos."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Telephone communications"
+msgstr "Comunicaciones telefónicas"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "Terms &amp; Conditions"
+msgstr "Terminos &amp; Condiciones"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/inherit_res_partner_model.py:0
+#, python-format
+msgid ""
+"The VAT number [%s] for partner [%s] does not seem to be valid. \n"
+"Note: the expected format is %s"
+msgstr ""
+"El RFC [%s] para la empresa [%s] no parece ser válido.\\n\"\n"
+"\"Nota: el formato esperado es %s"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/inherit_res_partner_model.py:0
+#, python-format
+msgid ""
+"The VAT number [%s] for partner [%s] either failed the VIES VAT validation "
+"check or did not respect the expected format %s."
+msgstr ""
+"El RFC [%s] para la empresa [%s] o bien falla en la comprobación de \"\n"
+"\"validación VIES o no respeta el formato esperado %s."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "The number has an invalid format."
+msgstr "El número tiene un formato incorrecto."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "The number has an invalid length."
+msgstr "El número tiene un tamaño incorrecto."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "The number\"s checksum or check digit is invalid."
+msgstr ""
+"La suma de verificación del número o la verificación de dígitos es "
+"incorrecta."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/inherit_account_payment_model.py:0
+#, python-format
+msgid "There are more than one auto invoices with different VAT number."
+msgstr "Existe más de una factura con número de RFC distinto."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/inherit_account_invoice_model.py:0
+#, python-format
+msgid "There is no a generic vat number defined for massive invoicing!"
+msgstr ""
+"No existe un número de rfc genérico definido para la facturación masiva!"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "This invoice has been created by user {}"
+msgstr "Esta factura ha sido creada por el usuario {}"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_order_page
+msgid "This order is invoiced with number"
+msgstr "Este pedido se encuentra facturado con el número"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/models/inherit_account_invoice_model.py:0
+#, python-format
+msgid "This payment is reserved for SO %s"
+msgstr "Este pago está reservado para el pedido de venta %s"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_invoicing_modal
+msgid "To complete the invoicing specify the following info."
+msgstr "Para completar la facturación especifique la siguiente información."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "To define"
+msgstr "Por definir"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/js/misc.js:0
+#, python-format
+msgid ""
+"Tome un minute para buscar café,<br />porque todavía esta auto facturando..."
+msgstr ""
+"Tome un minute para buscar café,<br />porque todavía esta auto facturando..."
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Transportation equipment"
+msgstr "Equipo de transporte"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type of the exception activity on record."
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.pos_order_content
+msgid "Unit Price"
+msgstr "Precio Unidad"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes sin leer"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_invoicing_modal
+msgid "VAT"
+msgstr "RFC"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.res_config_settings_view_form
+msgid "VAT number used to invoice orders."
+msgstr "RFC utilizado en la facturación masiva."
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner__vat_ids
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_users__vat_ids
+msgid "VATs"
+msgstr "RFCs"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields.selection,name:u_fast_invoicing.selection__account_payment_manual__state__posted
+msgid "Validated"
+msgstr "Validado"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_res_partner_multiple_vat__vat
+msgid "Vat"
+msgstr "RFC"
+
+#. module: u_fast_invoicing
+#: code:addons/u_fast_invoicing/controllers/controllers.py:0
+#, python-format
+msgid "Voluntary contributions to SAR"
+msgstr "Aportaciones voluntarias al SAR"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_analytic_account__website_id
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_pos_config__domain
+msgid "Website Domain"
+msgstr "Dominio Sitio Web"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,field_description:u_fast_invoicing.field_account_payment_manual__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_account_payment_manual__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: u_fast_invoicing
+#: model:ir.model.fields,help:u_fast_invoicing.field_pos_config__domain
+msgid "Will be prefixed by http in canonical URLs if no scheme is specified"
+msgstr "Will be prefixed by http in canonical URLs if no scheme is specified"
+
+#. module: u_fast_invoicing
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoice_error
+msgid "not invoiced."
+msgstr "no facturado."
+
+#. module: u_fast_invoicing
+#: model:ir.model,name:u_fast_invoicing.model_res_partner_multiple_vat
+msgid "res.partner.multiple.vat"
+msgstr "res.partner.multiple.vat"
+
+#. module: u_fast_invoicing
+#. openerp-web
+#: code:addons/u_fast_invoicing/static/src/xml/inherit_pos_ticket.xml:0
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing.invoicing_report_sale_order_doc
+#, python-format
+msgid "using this reference:"
+msgstr "utilizando esta referencia:"
+
+#~ msgid "<b>An error occurred</b>"
+#~ msgstr "<b>Ha ocurrido un error</b>"
+
+#~| msgid ""
+#~| "<i class=\"fa fa-check\"/>\n"
+#~| "                                        Make invoice"
+#~ msgid ""
+#~ "<i class=\"fa fa-comments mr8\"/>\n"
+#~ "                                        Record note in SO"
+#~ msgstr ""
+#~ "<i class=\"fa fa-comments mr8\"/>\n"
+#~ "                                        Dejar una nota en el pedido"
+
+#~ msgid "Send it !"
+#~ msgstr "Enviado !"
+
+#~ msgid "The vat number is required for operation."
+#~ msgstr "El número RFC es requerido para la operación."
+
+#~ msgid "Customer used by default in invoicing process."
+#~ msgstr ""
+#~ "Cliente utilizado por defecto en el proceso de facturación planificada de "
+#~ "pedidos TPV."
+
+#~ msgid "Default customer for point of sale orders invoicing."
+#~ msgstr ""
+#~ "Cliente por defecto para la facturación planificada de los pedidos del "
+#~ "TPV."
+
+#~ msgid ""
+#~ "Calling automated invoicing process, the following order has been "
+#~ "invoiced {}"
+#~ msgstr ""
+#~ "Ejecutando proceso automático de facturación, el siguiente pedido ha sido "
+#~ "facturado {}"
+
+#~ msgid ""
+#~ "Calling automated invoicing process, the following orders has been "
+#~ "invoiced {}"
+#~ msgstr ""
+#~ "Ejecutando proceso automático de facturación, los siguientes pedidos han "
+#~ "sido facturados {}"
+
+#~ msgid "Failed making invoice."
+#~ msgstr "Fallo creando la factura."
+
+#~ msgid "Invoice Fail"
+#~ msgstr "Error en factura"
+
+#~ msgid "account.payment.manual"
+#~ msgstr "account.payment.manual"
+
+#~ msgid "AI VAT:"
+#~ msgstr "AF RFC:"
+
+#~ msgid "Automatically invoicing"
+#~ msgstr "Facturación planificada"
+
+#~ msgid "Contact"
+#~ msgstr "Contacto"
+
+#~ msgid ""
+#~ "No customer for invoicing. Set one in Point of Sale/Configuration/"
+#~ "Configuration."
+#~ msgstr ""
+#~ "No hay clientes para facturación. Indique uno en Punto de Venta/"
+#~ "Configuración/Configuración."
+
+#~ msgid "The following invoices has been created automatically %s"
+#~ msgstr "Las siguientes facturas han sido creadas automáticamente %s"
+
+#~ msgid "PoS: Invoicing"
+#~ msgstr "TPV: Facturación"
+
+#~ msgid "+1 (650) 691-3277"
+#~ msgstr "+1 (650) 691-3277"
+
+#~ msgid "Email"
+#~ msgstr "Correo electrónico"
+
+#~ msgid "Phone"
+#~ msgstr "Su teléfono"
+
+#~ msgid "Social Reason"
+#~ msgstr "Razón social"
+
+#~ msgid "Invoicing"
+#~ msgstr "Facturación"
+
+#~ msgid ""
+#~ "Your\n"
+#~ "                                        Address"
+#~ msgstr "Su dirección"
+
+#~ msgid "Your Name"
+#~ msgstr "Su nombre"
+
+#~ msgid "<strong>Payment Method</strong>"
+#~ msgstr "<strong>Método de pago</strong>"
+
+#~ msgid "CFDI Use"
+#~ msgstr "Uso del CFDI"
+
+#~ msgid "Print"
+#~ msgstr "Imprimir"
+
+#~ msgid ""
+#~ "Invoicing\n"
+#~ "                                    <span class=\"fa fa-arrow-right\"/>"
+#~ msgstr ""
+#~ "Facturación\n"
+#~ "                                    <span class=\"fa fa-arrow-right\"/>"
+
+#~ msgid "This document does not exist."
+#~ msgstr "Este documento no existe"

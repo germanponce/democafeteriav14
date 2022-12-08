@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="view_order_inv_ref_form" model="ir.ui.view">
+            <field name="name">sale.order.inv.ref.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='sale_info']" position="inside">
+                    <label for="invoicing_ref"/>
+                    <div class="o_row">
+                        <field name="invoicing_ref" readonly="1"/>
+                        <button type="object" name="generate_invoicing_ref"
+                                class="btn-sm btn-link mb4 fa fa-barcode"
+                                aria-label="Generate Ref"
+                                title="Generate Ref"
+                                attrs="{'invisible':[('invoicing_ref', '!=', False)]}"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

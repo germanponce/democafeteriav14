@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record model="ir.module.category" id="module_morgan_category">
+            <field name="name">Training visibility</field>
+            <field name="sequence">24</field>
+        </record>
+
+        <record model="res.groups" id="yes_group_morgan">
+            <field name="name">Can see all registries</field>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+            <field name="category_id" ref="u_invoice_morgan.module_morgan_category"/>
+        </record>
+
+        <record id="morgan_global_visibility_rule_move" model="ir.rule">
+            <field name="name">Global training account moves records</field>
+            <field ref="account.model_account_move" name="model_id"/>
+            <field name="domain_force">['|', ('is_morgan_invoice', '!=', True), '&amp;', ('is_morgan_invoice', '=', True), ('is_morgan_invoice', '=', user.has_group('u_invoice_morgan.yes_group_morgan'))]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="morgan_global_visibility_rule_move_line" model="ir.rule">
+            <field name="name">Global training account moves line records</field>
+            <field ref="account.model_account_move_line" name="model_id"/>
+            <field name="domain_force">['|', ('is_morgan_invoice', '!=', True), '&amp;', ('is_morgan_invoice', '=', True), ('is_morgan_invoice', '=', user.has_group('u_invoice_morgan.yes_group_morgan'))]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="morgan_global_visibility_rule_paynments" model="ir.rule">
+            <field name="name">Global training payments records</field>
+            <field ref="account.model_account_payment" name="model_id"/>
+            <field name="domain_force">['|', ('is_morgan_invoice', '!=', True), '&amp;', ('is_morgan_invoice', '=', True), ('is_morgan_invoice', '=', user.has_group('u_invoice_morgan.yes_group_morgan'))]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>

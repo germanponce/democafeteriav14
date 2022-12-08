@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <record id="view_res_users_form_inherit_morgan" model="ir.ui.view">-->
+<!--        <field name="name">view.res.users.form.inherit.morgan</field>-->
+<!--        <field name="model">res.users</field>-->
+<!--        <field name="inherit_id" ref="base.view_users_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//notebook" position="before">-->
+<!--                <group>-->
+<!--                    <field name="can_see_all_registries"/>-->
+<!--                </group>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+</odoo>
+

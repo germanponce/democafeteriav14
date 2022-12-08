@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* u_fast_invoicing_auto_mass
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-11 17:23+0000\n"
+"PO-Revision-Date: 2021-04-11 17:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: u_fast_invoicing_auto_mass
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing_auto_mass.res_config_def_vat_settings_view_form
+msgid "<span class=\"o_form_label\">Default VAT number</span>"
+msgstr "<span class=\"o_form_label\">Número de VAT predeterminado</span>"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_bank_statement_line__auto_invoice_vat
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_move__auto_invoice_vat
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_payment__auto_invoice_vat
+msgid "Auto Invoice Vat"
+msgstr "RFC Auto Factura"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_bank_statement_line__auto_payment_policy
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_move__auto_payment_policy
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_payment__auto_payment_policy
+msgid "Auto Payment Policy"
+msgstr "Plazo de pago"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model,name:u_fast_invoicing_auto_mass.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model,name:u_fast_invoicing_auto_mass.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_res_company__fi_generic_vat_number
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_res_config_settings__fi_generic_vat_number
+msgid "Default Invoicing VAT"
+msgstr "VAT de facturación predeterminado"
+
+#. module: u_fast_invoicing_auto_mass
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing_auto_mass.res_config_def_vat_settings_view_form
+msgid "Default vat number for generic invoice process."
+msgstr "Número de VAT predeterminado para el proceso de facturación genérica"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_move__display_name
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_res_company__display_name
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_bank_statement_line__from_auto_invoice
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_move__from_auto_invoice
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_payment__from_auto_invoice
+msgid "From Auto Invoice"
+msgstr "Desde autofactura"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_move__id
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_res_company__id
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_res_config_settings__id
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model,name:u_fast_invoicing_auto_mass.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_account_move____last_update
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_res_company____last_update
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:u_fast_invoicing_auto_mass.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: u_fast_invoicing_auto_mass
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing_auto_mass.res_config_def_vat_settings_view_form
+msgid "Massive Sale Orders Fast invoicing"
+msgstr "Órdenes de venta masivas Facturación rápida"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.actions.server,name:u_fast_invoicing_auto_mass.cron_auto_invoice_massive_process_v14_ir_actions_server
+#: model:ir.cron,cron_name:u_fast_invoicing_auto_mass.cron_auto_invoice_massive_process_v14
+#: model:ir.cron,name:u_fast_invoicing_auto_mass.cron_auto_invoice_massive_process_v14
+msgid "Order: Massive Auto Invoice"
+msgstr "Pedido: Factura automática masiva"
+
+#. module: u_fast_invoicing_auto_mass
+#: model:ir.model,name:u_fast_invoicing_auto_mass.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: u_fast_invoicing_auto_mass
+#: code:addons/u_fast_invoicing_auto_mass/models/inherit_account_invoice_model.py:0
+#, python-format
+msgid "There is no a generic vat number defined for massive invoicing!"
+msgstr "No hay un número de VAT genérico definido para facturación masiva."
+
+#. module: u_fast_invoicing_auto_mass
+#: code:addons/u_fast_invoicing_auto_mass/models/inherit_account_invoice_model.py:0
+#, python-format
+msgid "This payment is reserved for SO %s"
+msgstr "Este pago está reservado para SO %s"
+
+#. module: u_fast_invoicing_auto_mass
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing_auto_mass.res_config_def_vat_settings_view_form
+msgid "VAT"
+msgstr ""
+
+#. module: u_fast_invoicing_auto_mass
+#: model_terms:ir.ui.view,arch_db:u_fast_invoicing_auto_mass.res_config_def_vat_settings_view_form
+msgid "VAT number used to invoice orders."
+msgstr "Número de VAT utilizado para facturar pedidos"

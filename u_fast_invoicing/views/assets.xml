@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="u_fast_invoicing_assets" inherit_id="website.assets_frontend"
+              name="Fast Invoicing">
+        <xpath expr="." position="inside">
+            <script type="text/javascript"
+                    src="/u_fast_invoicing/static/src/js/misc.js"/>
+            <script type="text/javascript"
+                    src="/u_fast_invoicing/static/src/js/u_fast_invoicing.js"/>
+            <link rel="stylesheet" type="text/scss"
+                  href="/u_fast_invoicing/static/src/scss/u_fast_invoicing.scss"/>
+        </xpath>
+    </template>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/u_fast_invoicing/static/src/js/models.js"/>
+        </xpath>
+    </template>
+
+</odoo>

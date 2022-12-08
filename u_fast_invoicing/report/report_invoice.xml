@@ -1,0 +1,42 @@
+<!-- Copyright 2020 Eficent Business and IT Consulting Services S.L.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="report_invoice_document" inherit_id="l10n_mx_edi.report_invoice_document_mx">
+        <xpath expr="//div[@t-if='o.partner_id.vat']" position="replace">
+            <t t-if="o.auto_invoice_vat">
+                <div style="display: none;" t-if="o.partner_id.vat" class="mt16 d-none">
+                    <t t-if="o.company_id.country_id.vat_label"
+                       t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label"/>
+                    <t t-else="">Tax ID</t>:
+                    <span t-field="o.partner_id.vat"/>
+                </div>
+                <div class="mt16">
+                    <t t-if="o.company_id.country_id.vat_label"
+                       t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label"/>
+                    <t t-else="">Tax ID</t>:
+                    <span t-field="o.auto_invoice_vat"/>
+                </div>
+            </t>
+            <t t-else="">
+                <div t-if="o.partner_id.vat" class="mt16">
+                    <t t-if="o.company_id.country_id.vat_label"
+                       t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label"/>
+                    <t t-else="">Tax ID</t>:
+                    <span t-field="o.partner_id.vat"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+    <template id="report_invoice_document_inherit_sale"
+              inherit_id="sale.report_invoice_document_inherit_sale">
+        <xpath expr="//address" position="attributes">
+            <attribute name="t-att-class">o.auto_invoice_vat and 'd-none' or ''</attribute>
+        </xpath>
+        <xpath expr="//t[@t-set='information_block']/div" position="attributes">
+            <attribute name="t-att-class">o.auto_invoice_vat and 'd-none' or ''</attribute>
+        </xpath>
+        <xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+            <attribute name="t-att-class">o.auto_invoice_vat and 'd-none' or ''</attribute>
+        </xpath>
+    </template>
+</odoo>

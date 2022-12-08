@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="95"/>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='account']" position="inside">
+                <h2>Fast invoicing</h2>
+<!--                <div class="row mt16 o_settings_container">-->
+<!--                    <div class="col-12 col-lg-6 o_setting_box">-->
+<!--                        <div class="o_setting_right_pane">-->
+<!--                            <span class="o_form_label">Default partner</span>-->
+<!--                            <div class="text-muted">-->
+<!--                                Default partner if no partner is set in orders-->
+<!--                            </div>-->
+<!--                            <div class="content-group">-->
+<!--                                <div class="mt16">-->
+<!--                                    <field name="fi_res_partner" class="o_light_label"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Notification channels</span>
+                            <div class="text-muted">
+                                Channels to notify the issues in auto invoice process.
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="fi_notification_channel_ids" class="o_light_label"
+                                           widget="many2many_tags"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
